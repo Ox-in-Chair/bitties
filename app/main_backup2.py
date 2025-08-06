@@ -142,24 +142,3 @@ def minimal():
 @app.route('/dashboard_original') 
 def dashboard_original(): 
     return render_template('dashboard_original.html') 
-
-
-@app.route('/api/fund/summary')
-def api_fund_summary():
-    """Get fund summary from historical data"""
-    try:
-        with open('data/fund_summary.json', 'r') as f:
-            summary = json.load(f)
-        return jsonify(summary)
-    except FileNotFoundError:
-        return jsonify({'error': 'Historical data not found'}), 404
-
-@app.route('/api/fund/history')
-def api_fund_history():
-    """Get full historical data"""
-    try:
-        with open('data/historical_data.json', 'r') as f:
-            history = json.load(f)
-        return jsonify(history)
-    except FileNotFoundError:
-        return jsonify({'error': 'Historical data not found'}), 404

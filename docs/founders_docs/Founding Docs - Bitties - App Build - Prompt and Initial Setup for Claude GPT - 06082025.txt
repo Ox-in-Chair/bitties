@@ -16,7 +16,9 @@ General Prompt and Initial Setup for "Bitties" App Development with Claude
 * Output Format & Deployment: The output of any script or code must be a single block that can be directly copied and pasted, eliminating the need for manual folder creation or file pasting. The entire app setup, data migration, and UI deployment should be as close to "single upload, everything works" as possible, with zero manual setup for data structure creation, migration, or configuration.
 * No User Input During Execution: All actions and logic within the app and its build scripts must be automated and documented, without prompting the user for input during code execution.
 3. Memory and Continuity Instructions:
-* Reference Documents: Please thoroughly reference the provided "Founding Docs" (including "Founders Docs – Bitties – 06082025.txt
+* Reference Documents: Please thoroughly reference the provided "Founding Docs" 
+
+including ("Founders Docs – Bitties – 06082025.txt
 
 Founders Docs – Bitties FAQ – 06082025.txt
 
@@ -30,7 +32,9 @@ Founding Docs – Bitties – App Build – 06082025.txt
 
 Founding Docs – Bitties – App Build – Insights to how-to – 06082025.txt
 
-Founding Docs – Bitties – App Build – Prompt and Initial Setup for Claude GPT – 06082025.txt) for a comprehensive understanding of the project's structure, requirements, and existing information.
+Founding Docs – Bitties – App Build – Prompt and Initial Setup for Claude GPT – 06082025.txt) 
+
+for a comprehensive understanding of the project's structure, requirements, and existing information.
 * GitHub Repository: I will provide the direct link to the public GitHub repository where the code will reside: [https://github.com/Ox-in-Chair/bitties]. Please ensure you have access to this repository. This will help you understand the project's structure and existing code.
 * Consistent Information: It is essential to maintain consistent information throughout our interactions to ensure continuity and prevent drifting off topic.
 * Restating Preferences: If you appear to drift off track or forget specific instructions, I will restate my preferences directly in the prompt. As a reminder, please aim to include core preferences in every relevant prompt, especially for critical aspects like styling. For example, I might say: "Remember our agreed typography and colour scheme as per the style guide.".

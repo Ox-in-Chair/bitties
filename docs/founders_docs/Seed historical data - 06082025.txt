@@ -1,8 +1,31 @@
-Continuing on with the “Bitties” app the a modular, automated, user-centric mobile and web platform to track a shared Bitcoin fund (2022–2036 Masters goal). All features must support: live BTC data (ZAR, USD), member dashboards, Masters-style UI (Poppins font, strict style module for all design, defined palette), accessibility (single-hand/tap, WCAG), and one-step, zero-manual deployment. Integrate external data (CSV/JSON/SQL, public APIs). Maintain strict versioning and README.md updates. Reference and align with all Founding Docs and the live GitHub repository (https://github.com/Ox-in-Chair/bitties). Always challenge assumptions, clarify ambiguities, and edit only specified lines.
+/* ============================================================================
+   Bitties 2036 â€“ Masters BTC Fund  (v3.1 dynamic, no Sheets)
+   - Uses ScriptProperties for persistence (works in standalone projects)
+   - Full past data loaded, live BTC price cached, monthly statement calculated
+   - Technical indicators (EMA/RSI/MACD), RSS news
+   ============================================================================ */
+'use strict';
 
-Task:
+/*** CONFIG *******************************************************************/
+const CONFIG = {
+  currency: 'ZAR',
+  defaultMonthlyContribution: 400,
+  goalTripYear: 2036,
+  annualInflationDefault: 5,
+  cacheMinutes: 10, // for price & RSS
+  livePriceUrl: 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=zar',
+  rssFeeds: [
+    'https://www.coindesk.com/arc/outboundfeeds/rss/',
+    'https://www.espn.com/espn/rss/golf/news',
+    'https://www.golfdigest.com/feed/rss'
+  ]
+};
 
-LEts seed this data and assume it is accurate. Granted the formatting may be incorrect lets Create historical data structure for Bitties using the below:
+/*** KEYS *********************************************************************/
+const KEY_STORE       = 'BITTIES_STORE_V1';
+const KEY_LOGO        = 'BITTIES_LOGO_URL';
+const KEY_PRICE_CACHE = 'BITTIES_PRICE_CACHE';
+const KEY_RSS_CACHE   = 'BITTIES_RSS_CACHE';
 
 /*** SEED DATA ****************************************************************/
 // Members: [name,status,joinDate,leaveDate]
@@ -156,16 +179,259 @@ const MONTHLY_CLOSE_SEED = [
  ['2025-05-31',1865003.29],['2025-06-30',1898877.75]
 ];
 
+/*** BOOTSTRAP ***************************************************************/
+function bootstrap(){
+  const sp = PropertiesService.getScriptProperties();
+  if (!sp.getProperty(KEY_STORE)) {
+    const store = {
+      members: MEMBERS_SEED,
+      contributions: CONTRIBUTIONS_SEED,
+      buys: BTC_BUYS_SEED,
+      closes: MONTHLY_CLOSE_SEED,
+      settings: { monthlyContribution: CONFIG.defaultMonthlyContribution }
+    };
+    sp.setProperty(KEY_STORE, JSON.stringify(store));
+    Logger.log('Seeded store.');
+  } else {
+    Logger.log('Store already present.');
+  }
+  if(!sp.getProperty(KEY_LOGO)) sp.setProperty(KEY_LOGO,'');
+  return 'Bootstrap OK';
+}
 
-Note the last was a purchase of BTC on 21/07/2025. Nothing has been done since then in the fund. 
+/*** PUBLIC API (called from client) ******************************************/
+function getBootData(){
+  const store = _loadStore();
+  const livePrice = _getPriceCached_();
+  const derived   = _deriveAll_(store, livePrice);
+  const rss       = _getRssCached_();
+  const logo      = PropertiesService.getScriptProperties().getProperty(KEY_LOGO) || '';
+  return {config:CONFIG, store, livePrice, derived, rss, logo};
+}
 
-The oruchase of BTc is done by one person after and once contributions are paid in full for a particular month. there may be months where btc is not bought. Only an authorised eprsons buys BTC who is Salad on behalf of the fund he he manally inout the total holdings once bought. MEmebrs have left and joined but for now there are 7 mebers with equal share. 
+function saveLogoUrl(url){
+  PropertiesService.getScriptProperties().setProperty(KEY_LOGO, url || '');
+  return true;
+}
 
-Before submitting, confirm:
-– Role assumed
-– Clarifications sought
-– Missing context built
-– Best guesses made
-– Reasoned, not pleased
+function saveSettings(settings){
+  const s=_loadStore();
+  s.settings.monthlyContribution = Number(settings.monthlyContribution)||CONFIG.defaultMonthlyContribution;
+  _saveStore(s);
+  return true;
+}
 
-IF in doubt ask
+function addMember(member){
+  const s=_loadStore();
+  s.members.push([member.name, member.status||'Active', member.joinDate, member.leaveDate||null]);
+  _saveStore(s);
+  return true;
+}
+function editMember(oldName,newMember){
+  const s=_loadStore();
+  const idx=s.members.findIndex(m=>m[0]===oldName);
+  if(idx<0) throw new Error('Member not found');
+  s.members[idx]=[newMember.name, newMember.status, newMember.joinDate, newMember.leaveDate||null];
+  _saveStore(s);
+  return true;
+}
+
+function addContribution(obj){
+  const s=_loadStore();
+  s.contributions.push([obj.date,obj.member,Number(obj.amount)]);
+  _saveStore(s);
+  return true;
+}
+function addBtcBuy(obj){
+  const s=_loadStore();
+  const last = s.buys.length? s.buys[s.buys.length-1][2] : 0;
+  const total = last + Number(obj.btc);
+  s.buys.push([obj.date, Number(obj.btc), total]);
+  _saveStore(s);
+  return true;
+}
+
+/*** INTERNALS ***************************************************************/
+function _loadStore(){
+  const raw = PropertiesService.getScriptProperties().getProperty(KEY_STORE);
+  if(!raw) throw new Error('Not bootstrapped. Run bootstrap() once.');
+  return JSON.parse(raw);
+}
+function _saveStore(store){
+  PropertiesService.getScriptProperties().setProperty(KEY_STORE, JSON.stringify(store));
+}
+
+/* Live price (cached) */
+function _getPriceCached_(){
+  try{
+    const cache = CacheService.getScriptCache();
+    const cached = cache.get(KEY_PRICE_CACHE);
+    if(cached) return JSON.parse(cached);
+
+    const resp = UrlFetchApp.fetch(CONFIG.livePriceUrl, {muteHttpExceptions:true, followRedirects:true});
+    if(resp.getResponseCode()!==200) throw new Error('HTTP '+resp.getResponseCode());
+    const data = JSON.parse(resp.getContentText());
+    const priceZar = data.bitcoin?.zar || null;
+    const obj = {priceZar, ts: Date.now()};
+    cache.put(KEY_PRICE_CACHE, JSON.stringify(obj), CONFIG.cacheMinutes*60);
+    return obj;
+  }catch(e){
+    Logger.log('Price fetch fail: '+e);
+    return null;
+  }
+}
+
+/* RSS (cached) */
+function _getRssCached_(){
+  try{
+    const cache = CacheService.getScriptCache();
+    const raw = cache.get(KEY_RSS_CACHE);
+    if(raw) return JSON.parse(raw);
+
+    const items=[];
+    CONFIG.rssFeeds.forEach(url=>{
+      try{
+        const txt = UrlFetchApp.fetch(url, {muteHttpExceptions:true, followRedirects:true, timeout:15000}).getContentText();
+        const doc = XmlService.parse(txt);
+        const ch = doc.getRootElement().getChild('channel');
+        if(!ch) return;
+        ch.getChildren('item').slice(0,8).forEach(i=>{
+          items.push({
+            title: i.getChildText('title'),
+            link : i.getChildText('link'),
+            date : i.getChildText('pubDate') || '',
+            src  : url
+          });
+        });
+      }catch(err){ Logger.log('RSS '+url+' -> '+err); }
+    });
+    const obj={items, ts:Date.now()};
+    cache.put(KEY_RSS_CACHE, JSON.stringify(obj), CONFIG.cacheMinutes*60);
+    return obj;
+  }catch(e){
+    return {items:[], ts:Date.now()};
+  }
+}
+
+/* Derivations */
+function _deriveAll_(store, live){
+  const contrib = store.contributions.map(c=>({date:c[0],member:c[1],amount:+c[2]})).sort((a,b)=>a.date.localeCompare(b.date));
+  const buys    = store.buys.map(b=>({date:b[0],btc:+b[1],total:+b[2]})).sort((a,b)=>a.date.localeCompare(b.date));
+  const closes  = new Map(store.closes.map(c=>[c[0].slice(0,7), +c[1]]));
+
+  const totalInvested = contrib.reduce((s,c)=>s+c.amount,0);
+  const totalBtc      = buys.length?buys[buys.length-1].total:0;
+  const spot          = live?.priceZar || null;
+  const portfolioValue= spot? spot*totalBtc : null;
+  const roiPct        = portfolioValue!=null? ((portfolioValue-totalInvested)/totalInvested)*100 : null;
+
+  const activeMembers = store.members.filter(m=>m[1]==='Active');
+  const perInvValue   = portfolioValue!=null? portfolioValue/activeMembers.length : null;
+  const perInvBtc     = totalBtc/activeMembers.length;
+
+  const statement     = _buildStatement_(contrib, buys, closes, spot);
+
+  const closeArr = statement.map(r=>r.closeZar||0);
+  const ema12   = _ema(closeArr,12);
+  const ema26   = _ema(closeArr,26);
+  const macd    = ema12.map((v,i)=>v-ema26[i]);
+  const signal  = _ema(macd,9);
+  const rsi14   = _rsi(closeArr,14);
+
+  return {totalInvested,totalBtc,portfolioValue,roiPct,perInvValue,perInvBtc,
+          statement, indicators:{ema12,ema26,macd,signal,rsi14}};
+}
+
+function _buildStatement_(contrib, buys, closesMap, spot){
+  const byMonth = {};
+  contrib.forEach(c=>{
+    const m = c.date.slice(0,7);
+    if(!byMonth[m]) byMonth[m]={total:0, members:new Set()};
+    byMonth[m].total+=c.amount;
+    byMonth[m].members.add(c.member);
+  });
+
+  const months = Object.keys(byMonth).sort();
+  const rows=[];
+  let cap=0;
+  let btcHold=0;
+  let prevPV=null;
+  let idx=1;
+
+  months.forEach(m=>{
+    const monthTotal = byMonth[m].total;
+    const invCount   = byMonth[m].members.size;
+    cap += monthTotal;
+
+    // buys this month
+    let btcBought=0;
+    buys.filter(b=>b.date.slice(0,7)===m).forEach(b=>{
+      btcBought += b.btc;
+      btcHold    = b.total;
+    });
+
+    const closeZar = closesMap.get(m) ?? (m===_yyyymm(new Date())?spot:null);
+    const pv = closeZar!=null? btcHold*closeZar : null;
+    const roi = pv!=null? ((pv-cap)/cap)*100 : null;
+    const perInvVal = pv!=null? pv/invCount : null;
+    const change = (pv!=null && prevPV!=null)? ((pv-prevPV)/prevPV)*100 : null;
+    prevPV=pv;
+
+    rows.push({
+      n:idx++,
+      month:m+'-01',
+      contrPerInv: monthTotal/invCount,
+      invCount,
+      monthlyTotal: monthTotal,
+      capitalInvested: cap,
+      investedPerInv: cap/invCount,
+      btcBought,
+      btcHoldings: btcHold,
+      closeZar,
+      portfolioValue: pv,
+      roiPct: roi,
+      perInvValue: perInvVal,
+      monthlyChange: change
+    });
+  });
+  return rows;
+}
+
+/*** Indicators ***************************************************************/
+function _ema(vals, period){
+  const out=[];
+  const k = 2/(period+1);
+  vals.forEach((v,i)=>{
+    if(i===0){out.push(v);}
+    else out.push(v*k + out[i-1]*(1-k));
+  });
+  return out;
+}
+function _rsi(vals, period){
+  const gains=[], losses=[];
+  for(let i=1;i<vals.length;i++){
+    const d = vals[i]-vals[i-1];
+    gains.push(Math.max(d,0));
+    losses.push(Math.max(-d,0));
+  }
+  const avgG=_sma(gains,period);
+  const avgL=_sma(losses,period);
+  const rsi=[null];
+  for(let i=period;i<vals.length;i++){
+    const ag=avgG[i-1]||0, al=avgL[i-1]||0;
+    if(al===0){rsi.push(100);continue;}
+    const rs=ag/al;
+    rsi.push(100-(100/(1+rs)));
+  }
+  return rsi;
+}
+function _sma(arr,p){
+  const out=[];
+  for(let i=0;i<arr.length;i++){
+    if(i+1<p){out.push(null);continue;}
+    const slice=arr.slice(i+1-p,i+1);
+    out.push(slice.reduce((s,v)=>s+v,0)/p);
+  }
+  return out;
+}
+function _yyyymm(d){return Utilities.formatDate(d,Session.getScriptTimeZone(),'yyyy-MM');}

@@ -45,3 +45,30 @@ Date	Contribution per Investor (ZAR)	Investor Count	Amount invested Monthly (ZAR
 01/05/2025	400.00	7.00	2,800.00	94,000.00	13,428.57	0.002825880	0.108431520	1,865,003.29	202,225.14
 01/06/2025	400.00	7.00	2,800.00	96,800.00	13,828.57	0.000000000	0.108431520	1,920,697.99	208,264.20
 01/07/2025	400.00	7.00	2,800.00	99,600.00	14,228.57	0.002645170	0.111076690	2,109,480.45	234,314.11
+
+
+
+The member transitions
+
+Franks Last contribution 01/09/2023
+Mearp 1st contribution date 01/10/2023
+
+The BTC withdrawal by Rich Nischk
+
+The BTC withdrawal by Rich Nischk - Not sure but his last contribution was in 01/08/2024, and 0.002800100 BTC was bought in August by the pool taking the pools total dated 30/08/2024 to 0.106554100 BTC then he did not contribute on the 01/09/2024 and took his share of what ever is was at what ever price BTc was and he left dropping the pool BTC holding as it was distibuted to him then the pool bought 0.002402770 Btc in Septemebr taking the total BTc holding to 0.095726870 Btc dated 30/09/2024 after Richie and left and the pool bought BTc with the contributions for that month. Can you not do a balancing effect?
+
+
+The correct contribution periods for each member
+
+As per the statement 
+
+01/10/2021 - 01/07/2025 Salad	Just	Jan	Ox Flanners	Jerry
+01/10/2021 - 01/08/2024 Rich Nischk
+01/10/2021 - 01/09/2023 Frank
+01/10/2023 - 01/07/2025 Mearp
+
+If you have to take your best somewhere or we need toa ssume something then lets do that. 
+
+
+
+

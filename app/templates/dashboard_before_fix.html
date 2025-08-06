@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}Bitties - Dashboard{% endblock %}
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h1 style="color: var(--primary-blue); margin-bottom: 2rem;">Bitcoin Investment Dashboard</h1>
+        
+        <!-- Live Price Section -->
+        <div class="card" style="margin-bottom: 2rem;">
+            <h2 class="card-title">Live Bitcoin Price</h2>
+            <div class="grid grid-2">
+                <div class="stat-card">
+                    <div class="stat-label">BTC/ZAR</div>
+                    <div class="stat-value" id="btc-zar">Loading...</div>
+                    <div class="stat-change" id="change-zar"></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">BTC/USD</div>
+                    <div class="stat-value" id="btc-usd">Loading...</div>
+                    <div class="stat-change" id="change-usd"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Stats -->
+        <div class="grid grid-4">
+            <div class="stat-card">
+                <div class="stat-label">Total BTC</div>
+                <div class="stat-value">0.00234500</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Portfolio Value</div>
+                <div class="stat-value" id="portfolio-value">Calculating...</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Members</div>
+                <div class="stat-value">6</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Goal Progress</div>
+                <div class="stat-value">12.5%</div>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="card" style="margin-top: 2rem;">
+            <h3>Augusta 2036 Progress</h3>
+            <div class="progress" style="margin-top: 1rem;">
+                <div class="progress-bar" style="width: 12.5%;">12.5%</div>
+            </div>
+            <p style="margin-top: 1rem; color: var(--text-muted);">R125,430 of R1,000,000 goal</p>
+        </div>
+    </div>
+</section>
+
+<script>
+// Fetch live Bitcoin prices
+async function updateBitcoinPrices() {
+    try {
+        const response = await fetch('/api/btc/price');
+        const data = await response.json();
+        
+        // Update prices
+        document.getElementById('btc-zar').textContent = `R${data.zar.toLocaleString()}`;
+        document.getElementById('btc-usd').textContent = `$${data.usd.toLocaleString()}`;
+        
+        // Calculate portfolio value (example with 0.00234500 BTC)
+        const btcAmount = 0.00234500;
+        const portfolioValueZAR = btcAmount * data.zar;
+        document.getElementById('portfolio-value').textContent = `R${portfolioValueZAR.toLocaleString()}`;
+        
+        // Add success indicator
+        document.getElementById('btc-zar').style.color = 'var(--accent-green)';
+        document.getElementById('btc-usd').style.color = 'var(--accent-green)';
+        
+    } catch (error) {
+        console.error('Error fetching Bitcoin price:', error);
+        document.getElementById('btc-zar').textContent = 'Error loading';
+        document.getElementById('btc-usd').textContent = 'Error loading';
+    }
+}
+
+// Update on load
+updateBitcoinPrices();
+
+// Update every 30 seconds
+setInterval(updateBitcoinPrices, 30000);
+</script>
+{% endblock %}

@@ -1,6 +1,24 @@
 \# Bitties - Bitcoin Investment Tracker
 
+markdown# Bitties - Bitcoin Investment Tracker
 
+Augusta 2036 Masters Tournament Fund Tracker
+
+## Current Status
+- ✅ Dashboard working at http://localhost:5000/dashboard
+- ✅ Premium Masters-themed CSS styling applied
+- ✅ API endpoints ready for data
+- ⏳ Connecting live Bitcoin prices
+
+## Quick Start
+
+venv\Scripts\activate
+bitties_commands run
+
+## Routes
+- `/` - Home page  
+- `/dashboard` - Main investment dashboard
+- `/api/btc/price` - Live Bitcoin prices
 
 A web application for tracking a shared Bitcoin investment fund among friends, with the goal of funding a trip to the Masters Tournament in Augusta in 2036.
 

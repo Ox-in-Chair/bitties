@@ -47,6 +47,8 @@ All previously identified calculator issues have been fixed in v1.4:
 
 ### 🚧 Outstanding Features (Priority Order)
 
+#### Phase 1: Core Functionality (Next Sprint)
+
 1. **Member Management UI** (20 mins)
    - Add/remove member interface
    - Automatic exit settlements
@@ -57,31 +59,66 @@ All previously identified calculator issues have been fixed in v1.4:
    - Bulk payment updates
    - Payment history tracking
 
-3. **Historical Charts** (30 mins)
-   - Portfolio growth visualization
-   - BTC price trends
-   - Member contribution graphs
-
-4. **System Configuration** (25 mins)
+3. **System Configuration** (25 mins)
    - Monthly contribution amounts
    - Effective date settings
    - Global preferences
 
-5. **Ledger View** (20 mins)
-   - Full transaction history
-   - Month-end BTC prices
-   - Date range filtering
+#### Phase 2: Data Visualization (10 Graph Tabs)
 
-6. **Mobile Optimization** (15 mins)
-   - Responsive design fixes
-   - Touch-friendly controls
-   - Single-hand operation
+**Fund Performance Graphs**
+1. **Contributions vs BTC Price** - Dual-axis line chart showing monthly contributions against BTC closing price
+2. **Cumulative Holdings** - Area chart of total BTC accumulation over time
 
-7. **Export Reports** (25 mins)
-   - PDF statements
-   - CSV data export
-   - Tax documentation
+**Contribution Analytics**  
+3. **Member Pie Chart** - Current month contribution breakdown
+4. **Contribution Heatmap** - Members × months matrix visualization
 
+**Market Analysis**
+5. **BTC Volatility** - Rolling standard deviation chart
+6. **MA Crossovers** - 50 vs 200-day moving average signals
+
+**Simulation & Forecasting**
+7. **ZAR-to-BTC Curve** - Interactive conversion simulator
+8. **What-If Projections** - Future value under various growth scenarios
+
+**Fun & Engagement**
+9. **Sentiment Gauge** - Live Twitter/Reddit crypto sentiment
+10. **Sports-Crypto Correlation** - Rugby scores vs BTC price scatter plot
+
+#### Phase 3: Trading Widgets & Analytics
+
+- **Order Book Visualizer** - Live depth chart
+- **Risk-Reward Scatter** - Recent trade analysis
+- **Top Crypto Spotlight** - Best performers widget
+- **Volatility Index** - VIX-style BTC indicator
+
+#### Phase 4: RSS Feed Integration (8 Tabs)
+
+1. **World Golf** - Masters Tournament news
+2. **World Rugby** - Springboks updates
+3. **World Cricket** - Proteas coverage
+4. **World Tennis** - Grand Slam feeds
+5. **Crypto Headlines** - Bitcoin & market news
+6. **Forex Updates** - ZAR exchange rates
+7. **Global Trade** - Economic indicators
+8. **Cape Town Weather** - Local conditions
+
+#### Phase 5: Interactive Engagement Features
+
+- **Live Sports Odds** - Local bookmaker feeds
+- **Monthly Trivia** - Finance & sports quiz
+- **Price Predictions** - Community BTC forecasts
+- **Trade Ideas Board** - Member suggestions & rankings
+- **Bull vs Bear Meter** - Dynamic sentiment indicator
+
+### 🎮 Feature Design Principles
+
+1. **Modular Tabs** - Each feature on separate tab
+2. **Theme Grouping** - Related features clustered
+3. **Masters Styling** - Consistent green/gold theme
+4. **Mobile First** - Touch-optimized controls
+5. **Real-time Updates** - Live data where applicable
 ## 🎯 Technical Specifications
 
 - **Current BTC Holdings**: 0.11107669 BTC
@@ -109,6 +146,10 @@ Access at: http://localhost:5000/dashboard
 - `data/historical_data.json` - Complete transaction history
 - `data/fund_summary.json` - Current fund state
 ## Development Progress
+
+
+### Update: 2025-08-07 01:03
+- Added comprehensive interactive features to roadmap (v1.6): 10 visualization graphs, trading widgets, 8 RSS feeds, and engagement features. Organized in modular tab structure with Masters theme.
 
 
 ### Update: 2025-08-07 00:54

@@ -1,0 +1,59 @@
+General Prompt and Initial Setup for "Bitties" App Development with Claude
+1. Clear and Detailed Project Context:
+* Project Name: The project name is "Bitties", which is also the name of the app.
+* Application Purpose: "Bitties" is an online mobile and web application designed to help a group of friends track and manage their shared Bitcoin investment fund, which commenced in 2022. The app's primary purpose is to provide live updates on the current status of the shared fund, display live charts related to Bitcoin, and include member-specific tabs. It aims to simplify the monitoring of Bitcoin purchases and track progress towards a shared financial goal: a trip to the Masters Tournament in Augusta in 2036.
+* Target Audience: The app is intended for the project creator and their friends who have contributed to the shared Bitcoin fund since 2022.
+* What I Want to Achieve: I need your comprehensive assistance in coding and building this mobile and web application. This includes generating full app code, creating a comprehensive style guide, integrating necessary APIs, handling calculations, implementing features, and providing a step-by-step guide on how to implement and build this app.
+* Core Values/Principles: The app is built on principles of user-centric design (accessibility-first), automation (zero manual setup), modularity, efficiency (token-efficient GPT interactions), data accuracy, and branding consistency.
+2. Technical Requirements and Initial Guidelines:
+* Core Development Language: The project utilises cmd and Python. The project path is C:\Users\mike\OneDrive\BitcoinApp\bitties, and the GitHub URL should be referenced in prompts to ensure these documents are consistently consulted.
+* Version Control: GitHub will be utilised for version control. - https://github.com/Ox-in-Chair/bitties
+* Content Delivery Network (CDN): Cloudflare can be utilised if necessary for enhanced performance and security.
+* Modular Build: The app must have a modular build structure to facilitate future feature additions and maintenance.
+* Project File: We need to create a structured project file.
+* README Maintenance: The README.md file will need to be continuously updated.
+* Token Efficiency: It is crucial to maintain token efficiency for all interactions, especially considering token upload limits and restrictions for GPT chats.
+* Output Format & Deployment: The output of any script or code must be a single block that can be directly copied and pasted, eliminating the need for manual folder creation or file pasting. The entire app setup, data migration, and UI deployment should be as close to "single upload, everything works" as possible, with zero manual setup for data structure creation, migration, or configuration.
+* No User Input During Execution: All actions and logic within the app and its build scripts must be automated and documented, without prompting the user for input during code execution.
+3. Memory and Continuity Instructions:
+* Reference Documents: Please thoroughly reference the provided "Founding Docs" (including "Founders Docs – Bitties – 06082025.txt
+
+Founders Docs – Bitties FAQ – 06082025.txt
+
+Founders Docs – Bitties Readme – 06082025.txt
+
+Founders Docs – Bitties Study Guide – 06082025.txt
+
+Founders Docs – Briefing Doc – Bitties App – 06082025.txt
+
+Founding Docs – Bitties – App Build – 06082025.txt
+
+Founding Docs – Bitties – App Build – Insights to how-to – 06082025.txt
+
+Founding Docs – Bitties – App Build – Prompt and Initial Setup for Claude GPT – 06082025.txt) for a comprehensive understanding of the project's structure, requirements, and existing information.
+* GitHub Repository: I will provide the direct link to the public GitHub repository where the code will reside: [Your GitHub Repository URL]. Please ensure you have access to this repository. This will help you understand the project's structure and existing code.
+* Consistent Information: It is essential to maintain consistent information throughout our interactions to ensure continuity and prevent drifting off topic.
+* Restating Preferences: If you appear to drift off track or forget specific instructions, I will restate my preferences directly in the prompt. As a reminder, please aim to include core preferences in every relevant prompt, especially for critical aspects like styling. For example, I might say: "Remember our agreed typography and colour scheme as per the style guide.".
+4. Initial Instructions for Specific Aspects:
+* Styling and Design Consistency:
+o All styling for the user interface must be organized in a separate module (e.g., a CSS file like style.css for web apps) so that it can be implemented globally. If I want to make changes, we should only have to modify this styling module, which will handle fonts, typography, and colours, without requiring changes to the core code of the entire app.
+o The UI must echo the Masters' premium, elegant aesthetic.
+o All text must use the "Poppins" font.
+o A comprehensive style guide will be provided or generated by you, detailing typography (fonts, sizes, weights, line heights), colour scheme (hex codes for primary blue #0656A3, accent green #00722D, accent yellow #FFB81C, accent red #D62718, backgrounds white #FFFFFF and very light grey #F6F7FB, and text colours including soft black #242424), spacing and layout (margins, padding, grid systems), button styles (states, appearance), forms and inputs, navigation, icons and imagery, responsive design, animations and transitions, and accessibility (WCAG AA/AAA contrast, readable fonts, focus states).
+* Error Management and Versioning:
+o Any errors that arise should lead to a change in version.
+o You are instructed to maintain a version history of the code or documents. Every time there's an update or an error correction, please save a new version with a version number or timestamp.
+o When an error occurs, I will be very specific about which lines or sections have the error, and I expect you to correct only those parts, instead of regenerating the entire code.
+* Data Handling and Management:
+o I possess relevant historical data regarding contributions, members (new and old), and Bitcoin purchases (e.g., 350 entries from 2021-2025). This data will be stored in a separate file or database (e.g., CSV, JSON, SQL database).
+o Please ensure the code you generate references this external data source for calculations and historical trends, rather than embedding it directly into the code.
+o All data structure creation, migration, and completion must be 100% automated.
+o The app must be robust against missing, incomplete, or inconsistent data.
+o The app will pull current and historical BTC price data (ZAR and USD) from public APIs (e.g., CoinGecko, CryptoCompare) and retrieve current/projected Augusta 2036 trip costs via live web scraping/APIs. All live data will update regularly and automatically.
+* Accessibility and UI/UX:
+o The app must allow for full use by someone with only one hand and limited typing ability.
+o All interface actions (including dashboard toggles, scenario simulation, manual BTC entry) must be achievable with single-click/tap controls, dropdowns, and accessible buttons.
+o The design includes rounded corners (12-20px radius), subtle drop-shadows, micro-interactions on hover/focus states, and generous padding and margins.
+o Each chart must be wrapped in a fluid container.
+* Language and Formatting: All app outputs and your communications should use UK English spelling, UK number/date formats, and professional but friendly language.
+

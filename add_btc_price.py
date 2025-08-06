@@ -1,4 +1,6 @@
-{% extends "base.html" %}
+import shutil
+
+dashboard_content = '''{% extends "base.html" %}
 {% block title %}Bitties - Dashboard{% endblock %}
 {% block content %}
 <section class="section">
@@ -86,4 +88,16 @@ updateBitcoinPrices();
 // Update every 30 seconds
 setInterval(updateBitcoinPrices, 30000);
 </script>
-{% endblock %}
+{% endblock %}'''
+
+# Backup current dashboard
+shutil.copy('app/templates/dashboard.html', 'app/templates/dashboard_backup.html')
+
+# Write new dashboard
+with open('app/templates/dashboard.html', 'w', encoding='utf-8') as f:
+    f.write(dashboard_content)
+
+print("✅ Dashboard updated with live Bitcoin prices!")
+print("✅ Restart your app to see the changes")
+print("\nRun: bitties_commands run")
+print("Then visit: http://localhost:5000/dashboard")

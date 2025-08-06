@@ -221,6 +221,10 @@ Private project. All code, content, and data are not for public use, distributio
 ## Development Progress
 
 
+### Update: 2025-08-07 00:40
+- Fixed BTC formatting (no more 9e-8) and added bidirectional calculations (v1.4) - improved input flexibility
+
+
 ### Update: 2025-08-07 00:38
 - Fixed BTC calculator price field and added manual total holdings input (v1.3) - ensures accurate fund tracking
 

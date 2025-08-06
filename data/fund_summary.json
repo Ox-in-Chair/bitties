@@ -1,7 +1,7 @@
 {
   "total_contributions_zar": 99600,
-  "total_btc_acquired": 0.11107669,
-  "number_of_purchases": 37,
+  "total_btc_acquired": 5478,
+  "number_of_purchases": 39,
   "number_of_contributions": 357,
   "active_members": 7,
   "total_members_all_time": 9,
@@ -18,7 +18,7 @@
   },
   "current_share_per_member": 0.0158681,
   "data_updated": "2025-08-06T23:23:30.030782",
-  "last_btc_purchase": "2025-07-21",
+  "last_btc_purchase": "2025-08-06",
   "portfolio_value_31_july": 234314.11,
   "rich_nischk_withdrawal": {
     "date": "2024-08-31",

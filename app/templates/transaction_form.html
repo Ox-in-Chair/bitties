@@ -100,13 +100,13 @@
                         </div>
                         <div>
                             <label style="display: block; margin-bottom: 0.5rem;">BTC to Purchase</label>
-                            <input type="number" id="btcAmount" class="form-control" step="0.00000001" required>
+                            <input type="text" id="btcAmount" class="form-control" pattern="[0-9]+\.?[0-9]*" required placeholder="0.00000000">
                         </div>
                     </div>
                     
                     <div style="margin-bottom: 1rem;">
                         <label style="display: block; margin-bottom: 0.5rem;">New Total BTC Holdings (after purchase)</label>
-                        <input type="number" id="totalHoldings" class="form-control" step="0.00000001" required placeholder="Enter total holdings after this purchase">
+                        <input type="text" id="totalHoldings" class="form-control" pattern="[0-9]+\.?[0-9]*" required placeholder="0.00000000">
                     
                     <div style="margin-bottom: 1rem;">
                         <label style="display: block; margin-bottom: 0.5rem;">Notes (optional)</label>
@@ -265,6 +265,9 @@ function simulate() {
         document.getElementById('simResult').value = '0.00000000 BTC';
     }
 }
+
+// Also trigger simulation when price changes
+document.getElementById('simPrice').addEventListener('input', simulate);
         }
         
     } catch (error) {
@@ -285,6 +288,7 @@ function calculateBTC() {
     
     if (amountZAR > 0 && btcPrice > 0) {
         const btcAmount = amountZAR / btcPrice;
+        // Format without scientific notation
         document.getElementById('btcAmount').value = btcAmount.toFixed(8);
         document.getElementById('est-btc').textContent = btcAmount.toFixed(8);
         
@@ -294,6 +298,22 @@ function calculateBTC() {
         document.getElementById('totalHoldings').value = suggestedTotal.toFixed(8);
     }
 }
+
+// Add reverse calculation when BTC amount is manually entered
+document.getElementById('btcAmount').addEventListener('input', function() {
+    const btcAmount = parseFloat(this.value) || 0;
+    const btcPrice = parseFloat(document.getElementById('btcPriceInput').value) || currentBTCPrice;
+    
+    if (btcAmount > 0 && btcPrice > 0) {
+        const amountZAR = btcAmount * btcPrice;
+        document.getElementById('amountZAR').value = amountZAR.toFixed(2);
+        
+        // Update total holdings
+        const currentHoldings = parseFloat(document.getElementById('current-btc').textContent) || 0;
+        const suggestedTotal = currentHoldings + btcAmount;
+        document.getElementById('totalHoldings').value = suggestedTotal.toFixed(8);
+    }
+});
 
 async function recordPurchase(event) {
     event.preventDefault();
@@ -320,8 +340,13 @@ async function recordPurchase(event) {
         });
         
         if (response.ok) {
-            alert('Purchase recorded successfully!');
-            window.location.href = '/dashboard';
+            const result = await response.json();
+            if (confirm('Purchase recorded successfully! New holdings: ' + result.new_holdings.toFixed(8) + ' BTC\n\nReturn to dashboard?')) {
+                window.location.href = '/dashboard';
+            } else {
+                // Stay on form for potential edits
+                loadFundStatus();
+            }
         } else {
             alert('Error recording purchase. Please try again.');
         }

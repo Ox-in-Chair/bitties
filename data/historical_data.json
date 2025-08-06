@@ -304,6 +304,15 @@
       "btc_bought": 0.00264517,
       "total_holdings": 0.11107669,
       "price_zar": 1898877.75
+    },
+    {
+      "date": "2025-08-06",
+      "btc_bought": 1.2e-07,
+      "total_holdings": 5478,
+      "price_zar": 2046957,
+      "amount_invested": 2800,
+      "notes": "",
+      "recorded_at": "2025-08-07T00:40:33.817209"
     }
   ],
   "contributions": [

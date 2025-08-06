@@ -1,0 +1,100 @@
+Top of Form
+Bitties App: Project Briefing Document
+1. Project Overview
+Project Name: Bitties
+Application Purpose: To provide a mobile and web application for tracking and managing a shared Bitcoin investment fund among a group of friends. The app will offer live updates, financial charts, and member-specific information, aiming to simplify the monitoring of Bitcoin purchases and progress towards a shared financial goal (specifically, a trip to Augusta in 2036).
+Target Audience: The project creator and their friends who have contributed to the shared Bitcoin fund since 2022.
+Core Values/Principles:
+* User-Centric Design: Accessibility-first (single-click/tap, one-hand use), intuitive navigation.
+* Automation: Zero manual setup for data structure creation, migration, and completion. All actions and logic automated.
+* Modularity: Designed for easy extension and future feature additions.
+* Efficiency: Token-efficient for GPT interactions and brief handovers.
+* Data Accuracy: Live and historical data updates for BTC prices and trip costs.
+* Branding Consistency: Adherence to a specific colour palette and typography.
+2. Technical Requirements & Architecture
+2.1. Technology Stack:
+* Core Development Language: Python or PowerShell (decision pending, but the document implies a preference for a single block output script for deployment).
+* Version Control: GitHub.
+* Content Delivery Network (CDN): Cloudflare (if necessary).
+* APIs: CoinGecko, CryptoCompare for BTC price data (ZAR and USD).
+* Web Scraping/APIs: For Augusta 2036 trip costs (flights, accommodation, tickets, spending).
+2.2. Development Principles:
+* Modular Build: The application must be modular to facilitate future feature additions and maintenance.
+* Project File: Creation of a structured project file is required.
+* Error Management: Any errors should trigger a version change.
+* README Maintenance: Continuous updates to the README file are essential.
+* Token Efficiency: Maintain token efficiency for GPT interactions and handover briefs.
+* Deployment: The output of any script must be a "single block output that I can copy and paste," eliminating the need for manual folder creation or file pasting. The build process should be "single upload, everything works."
+2.3. Data Handling:
+* Source Data: The creator possesses relevant data regarding "contribution, members (new and old), btc purchases etc." The formatting of this data needs to be determined for integration into the app modules.
+* Automated Data Management: "All data structure creation, migration, and completion is 100% automated."
+* Robustness: The app must be "robust against missing, incomplete, or inconsistent data."
+3. Key Features
+3.1. Core Application Functionality:
+* Dual-Currency Dashboard: Ability to "instantly switch all charts/values between ZAR and USD."
+* Personal & Group Dashboards:Individual view (per member).
+* Collective view (group totals, BTC held, portfolio value, progress).
+* Trader Analytics:Live and historic BTC charts (candlestick, line, area).
+* Contribution/balance graphs, P&L, volatility, drawdown.
+* Timeframes: "1D, 1W, 1M, YTD, All."
+* Goal progress, performance vs. target trajectory.
+* Speculation Tool: "What-if" simulator for:
+* Contribution amounts, BTC price, inflation, trip costs, member count.
+* Instant forecast updates.
+* Export/share scenarios.
+* Manual BTC Entry: Single accessible form for authorised persons to add BTC purchases, which "gets split in teh pool to teh number of mebers."
+* Notifications: "Email and (if possible) WhatsApp reminders for contributions, milestones, BTC price alerts."
+* Membership Management:Manage join/leave events, adjust shares fairly.
+* Support user roles (admin/member/viewer).
+* Nickname/avatar.
+* Audit log.
+* Trip Goal Logic: "Auto-track and dynamically update savings goal based on latest flight/accommodation/ticket cost data, including API-based refresh and scenario simulation."
+3.2. User Interface (UI) & Experience (UX):
+* Accessibility-First Design:"Full use by someone with only one hand and limited typing ability."
+* "All actions are single-tap/click and accessibility friendly."
+* "Interface actions (including dashboard toggles, scenario simulation, and manual BTC entry) must all be achievable with single-click/tap controls, dropdowns, and accessible buttons."
+* Mobile Responsiveness: "Dashboard and all UI elements optimised for both desktop and mobile/touch use."
+* Navigation: "One-click navigation for mobile and desktop."
+* Styling Module: All styling "should be organized in a separate tab so that it can be implemented globally." Modifications should only require changing the styling module, affecting "fonts, typography, and colors, without requiring changes to the core code."
+4. Branding & Aesthetics
+4.1. Theme: "UI must echo the Masters’ premium, elegant aesthetic."
+4.2. Typography:
+* Font: "All text must use the “Poppins” font."
+* CSS Variable: --font-family: 'Poppins', sans-serif;
+4.3. Colour Palette (Clean Masters Tournament):
+* Primary Colour (Dominant):Blue (#0656A3): "Use as the dominant brand and navigation colour. Apply for app bars, primary buttons, links, and key highlights. Set as the default for headings and actionable text."
+* CSS Variable: --primary-blue: #0656A3;
+* Secondary Accent Colours (Limited Usage):Green (#00722D): "Use for success messages, progress indicators, and positive highlights." "Limit usage to avoid overwhelming the primary blue."
+* CSS Variable: --accent-green: #00722D;
+* Yellow (#FFB81C): "Use sparingly for alerts, warnings, or notification badges. Use as accent lines, separators, or call-to-action highlights."
+* CSS Variable: --accent-yellow: #FFB81C;
+* Red (#D62718): "Apply for errors, destructive actions, or urgent notifications. Use for status indicators or confirmation of critical actions."
+* CSS Variable: --accent-red: #D62718;
+* Backgrounds and Surfaces:White (#FFFFFF): "Use as the primary background to maximise clarity and contrast."
+* CSS Variable: --background: #FFFFFF;
+* Very Light Grey (#F6F7FB or similar): "Use for cards, surfaces, or sections to reduce visual fatigue."
+* CSS Variable: --surface: #F6F7FB;
+* Text Colours:Primary Text: "Use your blue (#0656A3) for headings and key text."
+* Body Text: "Consider soft black (#242424) or dark grey for readability, instead of pure blue for all body text."
+* CSS Variable: --text-main: #242424;
+* Contrast: "Ensure all text has WCAG AA/AAA contrast for accessibility."
+4.4. UI Elements & Modern Touches (2025):
+* Buttons:Primary: Blue background, white text.
+* Secondary: White background, blue border and text.
+* Success/Confirm: Green background, white text.
+* Destructive: Red background, white text.
+* Icons: Use blue for active, grey for inactive, red/green/yellow for status.
+* Modern Touches:"Rounded corners: Use 12-20px radius for cards and buttons."
+* "Subtle drop-shadows: For elevation, use soft shadows, not harsh outlines."
+* "Micro-interactions: Add smooth transitions on hover/focus states."
+* "Spacing: Generous padding and margin for a clean, uncluttered interface."
+* Charts: "Wrap each chart in a fluid container."
+5. Instructions for Language Model (AI Assistant)
+* Output Format: Deliver "only the full app code and a step-by-step guide." Do not repeat or paraphrase this brief.
+* Automation: "Do not prompt the user for input during code execution. All actions and logic must be automated and documented."
+* Deployment: "All app setup, data migration, and UI deployment must be as close to 'single upload, everything works' as possible."
+* Code Quality: "No unnecessary comments, softeners, or explanations outside what is needed for code documentation and the step-by-step guide."
+* Language: "Use only UK English spelling, UK number/date formats, and professional but friendly language in all app outputs."
+* Scope: AI assistance is "only applicable to teh app and certain data sources."
+This briefing document encapsulates the complete vision and technical requirements for the "Bitties" application, serving as a comprehensive guide for its development.
+Bottom of Form

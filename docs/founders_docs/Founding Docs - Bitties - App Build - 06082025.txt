@@ -1,0 +1,466 @@
+New Document
+Bitties - Founders Doc - 06082025.txt
+I want to create an online mobile and web app that can be built using either Python or PowerShell. I need your help to determine the best choice and why. We can utilize GitHub and Cloudflare if necessary.
+
+TEh names of teh App is "Bitties" which will also be the project name
+
+The purpose of the app is to help me and my friends, who have been buying Bitcoin since 2022 and have contributed to a shared fund. I want the app to provide live updates on our current status and display live charts. It should also include member tabs.
+
+The build should be modular, and we need to create a project file. Any errors that arise should lead to a change in version and we must be token effiecent taking into account the token upload linits and restrictions for gpt chats.
+
+Additionally, we need to continuously update the README file, and it's important that we maintain token efficiency and and token effienct brief for buiold handover.
+
+All styling for the user interface should be organized in a separate tab so that it can be implemented globally. If I want to make changes, we should only have to modify the styling module, which will handle fonts, typography, and colors, without requiring changes to the core code of the entire app. Do you understand?
+
+TEH outout of any script depending on how e doing this must be that of single block output that i can copy and paste. I do not want to be mannually createin folders and pasting into fiels for teh code to be read. you must do this with the script.
+
+You must explain everything to me as we go and how to implement and build this app. Do you undesratnd?
+
+I have the relevant data about contribution, memebrs (new and old), btc purchases etc. how do you want me to format these so we can build teh app and moduels. 
+
+Clean Masters Tournament colour palette and Poppins font.
+
+One-click navigation for mobile and desktop.
+
+Displays pool value, goal progress, live BTC, members, payments, and more.
+
+All actions are single-tap/click and accessibility friendly.
+
+Built to be extended with charts, speculation, leaderboards, notifications, etc
+
+---
+
+For brevity, the full foundation of the app, complete with all required logic, modularisation for future feature addition, robust gap-handling, error management, branding, and accessibility-first controls. The full set of interactive analytics, charts, speculation tools, as would be layered into this scaffold and can be further expanded per your needs
+
+---
+Typography
+
+
+All text must use the ‚ÄúPoppins‚Äù font. 
+
+1. Primary Colour Usage
+
+Blue (#0656A3):
+
+Use as the dominant brand and navigation colour.
+
+Apply for app bars, primary buttons, links, and key highlights.
+
+Set as the default for headings and actionable text.
+
+2. Secondary Accent Colours
+Green (#00722D):
+
+Use for success messages, progress indicators, and positive highlights.
+
+Limit usage to avoid overwhelming the primary blue.
+
+Yellow (#FFB81C):
+
+Use sparingly for alerts, warnings, or notification badges.
+
+Use as accent lines, separators, or call-to-action highlights.
+
+Red (#D62718):
+
+Apply for errors, destructive actions, or urgent notifications.
+
+Use for status indicators or confirmation of critical actions.
+
+3. Backgrounds and Surfaces
+White (#FFFFFF):
+
+Use as the primary background to maximise clarity and contrast.
+
+Very Light Grey (#F6F7FB or similar):
+
+Use for cards, surfaces, or sections to reduce visual fatigue.
+
+4. Text Colours
+Primary Text:
+
+Use your blue (#0656A3) for headings and key text.
+
+Body Text:
+
+Consider soft black (#242424) or dark grey for readability, instead of pure blue for all body text.
+
+Contrast:
+
+Ensure all text has WCAG AA/AAA contrast for accessibility.
+
+5. UI Elements
+Buttons:
+
+Primary: Blue background, white text.
+
+Secondary: White background, blue border and text.
+
+Success/Confirm: Green background, white text.
+
+Destructive: Red background, white text.
+
+Icons:
+
+Use blue for active, grey for inactive, red/green/yellow for status.
+
+6. Modern 2025 Touches
+Rounded corners: Use 12-20px radius for cards and buttons.
+
+Subtle drop-shadows: For elevation, use soft shadows, not harsh outlines.
+
+Micro-interactions: Add smooth transitions on hover/focus states.
+
+Spacing: Generous padding and margin for a clean, uncluttered interface.
+
+Poppins font: Consistent usage across headings and body text.
+
+7. Example CSS Variables
+css
+Copy
+Edit
+:root {
+  --primary-blue: #0656A3;
+  --accent-green: #00722D;
+  --accent-yellow: #FFB81C;
+  --accent-red: #D62718;
+  --background: #FFFFFF;
+  --surface: #F6F7FB;
+  --text-main: #242424;
+  --font-family: 'Poppins', sans-serif;
+
+---
+
+Zero Manual Setup
+
+All data structure creation, migration, and completion is 100% automated. Never prompt the user to set up or configure anything manually.
+
+App design must allow for full use by someone with only one hand and limited typing ability.
+
+Interface actions (including dashboard toggles, scenario simulation, and manual BTC entry) must all be achievable with single-click/tap controls, dropdowns, and accessible buttons.
+
+---
+
+Pull current and historical BTC price data (ZAR and USD) from public APIs (e.g., CoinGecko, CryptoCompare).
+
+Retrieve current and projected trip costs for Augusta 2036 (flights, accommodation, tickets, spending) via live web scraping/APIs where possible.
+
+Ensure all live data updates regularly and automatically.
+
+---
+
+5. Core App Features:
+
+Dual-Currency Dashboard: Toggle to instantly switch all charts/values between ZAR and USD.
+
+Personal & Group Dashboards: Individual view (per member) and collective view (group totals, BTC held, portfolio value, progress).
+
+Trader Analytics: Live and historic BTC charts (candlestick, line, area), contribution/balance graphs, P&L, volatility, drawdown, timeframes (1D, 1W, 1M, YTD, All), goal progress, performance vs. target trajectory.
+
+Speculation Tool: ‚ÄúWhat-if‚Äù simulator for contribution amounts, BTC price, inflation, trip costs, member count; instantly update forecasts, export/share scenarios.
+
+Manual BTC Entry: Add  BTC purchases via a single accessible form by authorised persons whihc gets split in teh pool to teh number of mebers
+
+Notifications: Email and (if possible) WhatsApp reminders for contributions, milestones, BTC price alerts.
+
+Membership Management: Easily manage join/leave events, adjust shares fairly, support user roles (admin/member/viewer), nickname/avatar, and audit log.
+
+Trip Goal Logic: Auto-track and dynamically update savings goal based on latest flight/accommodation/ticket cost data, including API-based refresh and scenario simulation.
+
+Mobile Responsive: Dashboard and all UI elements optimised for both desktop and mobile/touch use.
+
+UI must echo the Masters‚Äô premium, elegant aesthetic (use colour on charts, progress bars, buttons, badges, navigation, etc.).
+
+--
+Additional Instructions
+
+At no point should your code or guide require the user to manually create, edit, or format
+
+Do not prompt the user for input during code execution. All actions and logic must be automated and documented.
+
+Ensure the app is robust against missing, incomplete, or inconsistent data.
+
+Reminders for the Language Model
+Deliver only the full app code and a step-by-step guide‚Äîdo not repeat or paraphrase this brief in your output.
+
+All app setup, data migration, and UI deployment must be as close to ‚Äúsingle upload, everything works‚Äù as possible.
+
+No unnecessary comments, softeners, or explanations outside what is needed for code documentation and the step-by-step guide.
+
+Use only UK English spelling, UK number/date formats, and professional but friendly language in all app outputs.
+
+Wrap each chart in a fluid container
+
+ai- ssitanct only appalicble to teh app and certain data sources. 
+
+End of Document
+---------------------------------------
+New Document
+Founders Doc - Briefing Doc - Bitties App - 06082025.txt
+Top of Form
+Bitties App: Project Briefing Document
+1. Project Overview
+Project Name: Bitties
+Application Purpose: To provide a mobile and web application for tracking and managing a shared Bitcoin investment fund among a group of friends. The app will offer live updates, financial charts, and member-specific information, aiming to simplify the monitoring of Bitcoin purchases and progress towards a shared financial goal (specifically, a trip to Augusta in 2036).
+Target Audience: The project creator and their friends who have contributed to the shared Bitcoin fund since 2022.
+Core Values/Principles:
+* User-Centric Design: Accessibility-first (single-click/tap, one-hand use), intuitive navigation.
+* Automation: Zero manual setup for data structure creation, migration, and completion. All actions and logic automated.
+* Modularity: Designed for easy extension and future feature additions.
+* Efficiency: Token-efficient for GPT interactions and brief handovers.
+* Data Accuracy: Live and historical data updates for BTC prices and trip costs.
+* Branding Consistency: Adherence to a specific colour palette and typography.
+2. Technical Requirements & Architecture
+2.1. Technology Stack:
+* Core Development Language: Python or PowerShell (decision pending, but the document implies a preference for a single block output script for deployment).
+* Version Control: GitHub.
+* Content Delivery Network (CDN): Cloudflare (if necessary).
+* APIs: CoinGecko, CryptoCompare for BTC price data (ZAR and USD).
+* Web Scraping/APIs: For Augusta 2036 trip costs (flights, accommodation, tickets, spending).
+2.2. Development Principles:
+* Modular Build: The application must be modular to facilitate future feature additions and maintenance.
+* Project File: Creation of a structured project file is required.
+* Error Management: Any errors should trigger a version change.
+* README Maintenance: Continuous updates to the README file are essential.
+* Token Efficiency: Maintain token efficiency for GPT interactions and handover briefs.
+* Deployment: The output of any script must be a "single block output that I can copy and paste," eliminating the need for manual folder creation or file pasting. The build process should be "single upload, everything works."
+2.3. Data Handling:
+* Source Data: The creator possesses relevant data regarding "contribution, members (new and old), btc purchases etc." The formatting of this data needs to be determined for integration into the app modules.
+* Automated Data Management: "All data structure creation, migration, and completion is 100% automated."
+* Robustness: The app must be "robust against missing, incomplete, or inconsistent data."
+3. Key Features
+3.1. Core Application Functionality:
+* Dual-Currency Dashboard: Ability to "instantly switch all charts/values between ZAR and USD."
+* Personal & Group Dashboards:Individual view (per member).
+* Collective view (group totals, BTC held, portfolio value, progress).
+* Trader Analytics:Live and historic BTC charts (candlestick, line, area).
+* Contribution/balance graphs, P&L, volatility, drawdown.
+* Timeframes: "1D, 1W, 1M, YTD, All."
+* Goal progress, performance vs. target trajectory.
+* Speculation Tool: "What-if" simulator for:
+* Contribution amounts, BTC price, inflation, trip costs, member count.
+* Instant forecast updates.
+* Export/share scenarios.
+* Manual BTC Entry: Single accessible form for authorised persons to add BTC purchases, which "gets split in teh pool to teh number of mebers."
+* Notifications: "Email and (if possible) WhatsApp reminders for contributions, milestones, BTC price alerts."
+* Membership Management:Manage join/leave events, adjust shares fairly.
+* Support user roles (admin/member/viewer).
+* Nickname/avatar.
+* Audit log.
+* Trip Goal Logic: "Auto-track and dynamically update savings goal based on latest flight/accommodation/ticket cost data, including API-based refresh and scenario simulation."
+3.2. User Interface (UI) & Experience (UX):
+* Accessibility-First Design:"Full use by someone with only one hand and limited typing ability."
+* "All actions are single-tap/click and accessibility friendly."
+* "Interface actions (including dashboard toggles, scenario simulation, and manual BTC entry) must all be achievable with single-click/tap controls, dropdowns, and accessible buttons."
+* Mobile Responsiveness: "Dashboard and all UI elements optimised for both desktop and mobile/touch use."
+* Navigation: "One-click navigation for mobile and desktop."
+* Styling Module: All styling "should be organized in a separate tab so that it can be implemented globally." Modifications should only require changing the styling module, affecting "fonts, typography, and colors, without requiring changes to the core code."
+4. Branding & Aesthetics
+4.1. Theme: "UI must echo the Mastersí premium, elegant aesthetic."
+4.2. Typography:
+* Font: "All text must use the ìPoppinsî font."
+* CSS Variable: --font-family: 'Poppins', sans-serif;
+4.3. Colour Palette (Clean Masters Tournament):
+* Primary Colour (Dominant):Blue (#0656A3): "Use as the dominant brand and navigation colour. Apply for app bars, primary buttons, links, and key highlights. Set as the default for headings and actionable text."
+* CSS Variable: --primary-blue: #0656A3;
+* Secondary Accent Colours (Limited Usage):Green (#00722D): "Use for success messages, progress indicators, and positive highlights." "Limit usage to avoid overwhelming the primary blue."
+* CSS Variable: --accent-green: #00722D;
+* Yellow (#FFB81C): "Use sparingly for alerts, warnings, or notification badges. Use as accent lines, separators, or call-to-action highlights."
+* CSS Variable: --accent-yellow: #FFB81C;
+* Red (#D62718): "Apply for errors, destructive actions, or urgent notifications. Use for status indicators or confirmation of critical actions."
+* CSS Variable: --accent-red: #D62718;
+* Backgrounds and Surfaces:White (#FFFFFF): "Use as the primary background to maximise clarity and contrast."
+* CSS Variable: --background: #FFFFFF;
+* Very Light Grey (#F6F7FB or similar): "Use for cards, surfaces, or sections to reduce visual fatigue."
+* CSS Variable: --surface: #F6F7FB;
+* Text Colours:Primary Text: "Use your blue (#0656A3) for headings and key text."
+* Body Text: "Consider soft black (#242424) or dark grey for readability, instead of pure blue for all body text."
+* CSS Variable: --text-main: #242424;
+* Contrast: "Ensure all text has WCAG AA/AAA contrast for accessibility."
+4.4. UI Elements & Modern Touches (2025):
+* Buttons:Primary: Blue background, white text.
+* Secondary: White background, blue border and text.
+* Success/Confirm: Green background, white text.
+* Destructive: Red background, white text.
+* Icons: Use blue for active, grey for inactive, red/green/yellow for status.
+* Modern Touches:"Rounded corners: Use 12-20px radius for cards and buttons."
+* "Subtle drop-shadows: For elevation, use soft shadows, not harsh outlines."
+* "Micro-interactions: Add smooth transitions on hover/focus states."
+* "Spacing: Generous padding and margin for a clean, uncluttered interface."
+* Charts: "Wrap each chart in a fluid container."
+5. Instructions for Language Model (AI Assistant)
+* Output Format: Deliver "only the full app code and a step-by-step guide." Do not repeat or paraphrase this brief.
+* Automation: "Do not prompt the user for input during code execution. All actions and logic must be automated and documented."
+* Deployment: "All app setup, data migration, and UI deployment must be as close to 'single upload, everything works' as possible."
+* Code Quality: "No unnecessary comments, softeners, or explanations outside what is needed for code documentation and the step-by-step guide."
+* Language: "Use only UK English spelling, UK number/date formats, and professional but friendly language in all app outputs."
+* Scope: AI assistance is "only applicable to teh app and certain data sources."
+This briefing document encapsulates the complete vision and technical requirements for the "Bitties" application, serving as a comprehensive guide for its development.
+Bottom of Form
+End of Document
+---------------------------------------
+New Document
+Founders Docs - Bitties FAQ - 06082025.txt
+Bitties FAQ
+
+Top of Form
+1. What is the "Bitties" app and its core purpose?
+The "Bitties" app is a mobile and web application designed to help a group of friends who have been jointly investing in Bitcoin since 2022. Its primary purpose is to provide live updates on their shared Bitcoin fund, display real-time charts, and offer individual member tabs. The app aims to track their collective progress towards a specific savings goal, which is a trip to the Masters Tournament in Augusta in 2036. It will facilitate tracking contributions, managing members, and providing insights into their Bitcoin portfolio.
+2. What are the key visual design and accessibility principles for the "Bitties" app?
+The "Bitties" app will adopt a premium and elegant aesthetic, echoing the Masters Tournament's visual style. All text will exclusively use the "Poppins" font. The primary brand colour will be a specific shade of blue (#0656A3), with accent colours including green (#00722D) for success, yellow (#FFB81C) for alerts, and red (#D62718) for errors. Backgrounds will primarily be white (#FFFFFF) with very light grey (#F6F7FB) for surfaces.
+Accessibility is a paramount concern, ensuring the app can be fully used by individuals with only one hand and limited typing ability. All interactions, including navigation, data entry, and toggles, will be achievable with single-tap/click controls, dropdowns, and accessible buttons. The user interface will incorporate modern design touches like rounded corners (12-20px), subtle drop-shadows, micro-interactions, and generous spacing for a clean, uncluttered look.
+3. How will the "Bitties" app handle data and ensure live updates?
+The "Bitties" app will pull current and historical Bitcoin price data (in both ZAR and USD) from public APIs such as CoinGecko and CryptoCompare. It will also retrieve current and projected trip costs for the Augusta 2036 trip (flights, accommodation, tickets, spending) via live web scraping and APIs where possible. All live data will update regularly and automatically to ensure users always have the most current information. The app is designed to be robust against missing, incomplete, or inconsistent data.
+4. What are the core features and functionalities of the "Bitties" app?
+The "Bitties" app will include several core features:
+* Dual-Currency Dashboard: Users can instantly switch all charts and values between ZAR and USD.
+* Personal & Group Dashboards: Provides individual member views and collective group totals, including BTC held, portfolio value, and progress.
+* Trader Analytics: Offers live and historic BTC charts (candlestick, line, area), contribution/balance graphs, P&L, volatility, drawdown, and various timeframes.
+* Speculation Tool: A "What-if" simulator for contribution amounts, BTC price, inflation, trip costs, and member count, allowing for instant forecast updates and scenario sharing.
+* Manual BTC Entry: Authorised persons can add BTC purchases via a single accessible form, which then gets split amongst the pool members.
+* Notifications: Email and potentially WhatsApp reminders for contributions, milestones, and BTC price alerts.
+* Membership Management: Tools to easily manage join/leave events, adjust shares fairly, support user roles (admin/member/viewer), and maintain an audit log.
+* Trip Goal Logic: Auto-tracks and dynamically updates the savings goal based on the latest trip cost data.
+5. What is the proposed development approach and technology stack for "Bitties"?
+The "Bitties" app can be built using either Python or PowerShell, with the specific choice to be determined. The development will utilise GitHub for version control and Cloudflare if necessary. The build will be modular, with a project file created to manage components. Errors will trigger a version change, and emphasis will be placed on token efficiency for GPT chats and handover briefs. All styling will be organised in a separate module for global implementation and easy modification without altering core app code. The final output of any script will be a single block that can be directly copied and pasted, eliminating manual folder creation or file pasting.
+6. How will data for contributions, members, and BTC purchases be formatted for the app?
+The project brief states that relevant data regarding contributions, members (new and old), and Bitcoin purchases is available. While the exact formatting is not specified in the provided text, the app's design anticipates that this data will be structured in a way that allows for automated creation, migration, and completion of data structures. The development process will include guidance on how to format this data to ensure seamless integration with the app's modules and functionalities. The app is designed to be robust against missing, incomplete, or inconsistent data.
+7. What considerations have been made for the app's extendability and future features?
+The "Bitties" app is designed with modularity in mind to facilitate future expansion. The core foundation of the app is built to be extended with additional features such as more interactive analytics, advanced charts, leaderboards, and a robust notification system beyond the initial scope. The modular architecture, particularly the separation of styling and core logic, ensures that new features can be integrated without requiring significant overhauls of existing code. This allows for future additions like more detailed speculation tools or expanded data sources as needed.
+8. How will the app ensure a "zero manual setup" and ease of deployment?
+A key requirement for "Bitties" is "zero manual setup." This means all data structure creation, migration, and completion will be 100% automated, eliminating the need for users to manually set up or configure anything. The app's design dictates that all actions and logic must be automated and documented, with no prompts for user input during code execution. The goal is for the entire app setup, data migration, and UI deployment to be as close to a "single upload, everything works" process as possible, with the final code provided as a single, copy-pastable block.
+Bottom of Form
+.
+End of Document
+---------------------------------------
+New Document
+Founders Docs - Bitties Readme - 06082025.txt
+README file for your "Bitties" App Build
+# Bitties App
+
+## Project Overview
+
+**Bitties** is an innovative online mobile and web application designed to help a close-knit group of friends track their shared Bitcoin investments, which commenced in 2022. The app provides **live updates on contribution status**, **real-time Bitcoin charts**, and **dedicated member tabs** to foster transparency and engagement within the group.
+
+Our vision is to build a robust and user-friendly application that simplifies the management and monitoring of our collective Bitcoin pool, while also offering advanced analytical and planning tools.
+
+## Core Features
+
+The Bitties app is engineered with a comprehensive set of features to meet the diverse needs of its users:
+
+*   **Dual-Currency Dashboard**: Instantly toggle all charts and values between ZAR and USD for comprehensive financial oversight.
+*   **Personal & Group Dashboards**: View individual contributions and performance alongside collective group totals, BTC holdings, portfolio value, and overall goal progress.
+*   **Trader Analytics**: Access live and historic BTC charts (candlestick, line, area), contribution/balance graphs, Profit & Loss (P&L), volatility, drawdown, and various timeframes (1D, 1W, 1M, YTD, All). Track goal progress and performance against target trajectories.
+*   **Speculation Tool**: Utilise a "what-if" simulator to explore scenarios based on contribution amounts, BTC price fluctuations, inflation, trip costs, and member count. Instantly update forecasts and export/share scenarios.
+*   **Manual BTC Entry**: Authorised persons can add new Bitcoin purchases via a single, accessible form, which then automatically splits the value across the member pool.
+*   **Notifications**: Receive timely email and (where possible) WhatsApp reminders for contributions, milestone achievements, and crucial BTC price alerts.
+*   **Membership Management**: Easily manage member join/leave events, fairly adjust shares, support various user roles (admin/member/viewer), assign nicknames/avatars, and maintain a comprehensive audit log.
+*   **Trip Goal Logic**: Automatically track and dynamically update savings goals for the Augusta 2036 trip, integrating live flight, accommodation, and ticket cost data via API-based refresh and scenario simulation.
+*   **Mobile Responsive Design**: The entire dashboard and all UI elements are meticulously optimised for seamless use on both desktop and mobile/touch devices.
+
+## Design Principles & User Experience
+
+The Bitties app prioritises an intuitive, accessible, and aesthetically pleasing user experience, echoing the premium, elegant aesthetic of the Masters Tournament.
+
+*   **Accessibility-First Controls**: All actions are designed for **single-tap/click operation** and are **accessibility friendly**, including one-click navigation for both mobile and desktop. The app allows for **full use by someone with only one hand and limited typing ability**.
+*   **Zero Manual Setup**: **All data structure creation, migration, and completion are 100% automated**, ensuring the user is never prompted to manually set up or configure anything. The aim is a **"single upload, everything works"** deployment.
+*   **Modular Architecture**: The application is built with a modular design to facilitate **future feature additions** and robust extensibility.
+*   **Global Styling**: All user interface styling, including fonts, typography, and colours, is organised in a separate module. This allows for **global styling changes by modifying only the styling module**, without altering the core app code.
+*   **Typography**: All text consistently uses the **"Poppins" font**.
+*   **Colour Palette**: Inspired by the Masters Tournament, the app uses a clean and purposeful colour palette:
+    *   **Primary Blue (`#0656A3`)**: Dominant brand and navigation colour, used for app bars, primary buttons, links, key highlights, headings, and actionable text.
+    *   **Accent Green (`#00722D`)**: For success messages, progress indicators, and positive highlights.
+    *   **Accent Yellow (`#FFB81C`)**: Used sparingly for alerts, warnings, or notification badges, accent lines, separators, or call-to-action highlights.
+    *   **Accent Red (`#D62718`)**: Applied for errors, destructive actions, or urgent notifications, status indicators, or confirmation of critical actions.
+    *   **Backgrounds**: Primary background is **White (`#FFFFFF`)** for clarity, with **Very Light Grey (`#F6F7FB`)** for cards, surfaces, or sections to reduce visual fatigue.
+    *   **Text Colours**: Primary text uses the brand blue (`#0656A3`) for headings and key text, while body text considers **soft black (`#242424`)** or dark grey for optimal readability. All text ensures **WCAG AA/AAA contrast for accessibility**.
+*   **Modern UI Touches (2025)**: Incorporates **rounded corners (12-20px radius)** for cards and buttons, **subtle drop-shadows** for elevation, **smooth micro-interactions** on hover/focus states, and **generous padding and margins** for a clean, uncluttered interface.
+*   **Robustness**: The app is designed to be robust against missing, incomplete, or inconsistent data.
+
+## Technology Considerations
+
+The app will be built using either **Python or PowerShell** for its backend logic and functionality. **GitHub** will be utilised for version control and collaboration, and **Cloudflare** can be integrated for enhanced performance and security.
+
+## Data Sources
+
+The app relies on live and historical data from various public APIs and web scraping:
+
+*   **Bitcoin Price Data**: Current and historical BTC price data (ZAR and USD) will be pulled from public APIs such as **CoinGecko and CryptoCompare**.
+*   **Augusta 2036 Trip Costs**: Current and projected trip costs (flights, accommodation, tickets, spending) will be retrieved via **live web scraping and APIs** where possible.
+*   All live data will **update regularly and automatically**.
+
+## Development Guidelines & Maintenance
+
+*   **Modular Build**: The project structure will be modular, with clear separation of concerns, particularly for styling and core logic.
+*   **Version Control**: Any errors that arise will lead to a change in version.
+*   **Documentation**: The `README.md` file will be continuously updated.
+*   **Token Efficiency**: All development and communication will maintain token efficiency, especially considering token upload limits for GPT chats and build handover briefs.
+*   **Automated Output**: Any script output will be provided as a **single block** ready for copy-pasting, eliminating the need for manual folder or file creation.
+*   **No User Input During Execution**: All actions and logic within the app and its build scripts will be **automated and documented**, without prompting the user for input during code execution.
+*   **Language & Formatting**: All app outputs will use **UK English spelling**, **UK number/date formats**, and **professional but friendly language**.
+*   **Chart Presentation**: Each chart will be wrapped in a fluid container.
+
+End of Document
+---------------------------------------
+New Document
+Founders Docs - Bitties Study Guide - 06082025.txt
+Top of Form
+Bitties App: Study Guide
+Quiz
+1. What is the primary purpose of the Bitties app, and for whom is it intended? The Bitties app aims to provide live updates and tracking for a shared fund where friends have been buying Bitcoin since 2022. It is intended for the creator and their friends who are part of this shared investment pool.
+2. What two programming languages are being considered for building the Bitties app, and what is the stated requirement regarding the output of any script? The two programming languages being considered are Python and PowerShell. The output of any script must be a single block output that can be directly copied and pasted, avoiding manual folder creation or file pasting.
+3. Describe the key requirements for the app's styling and how changes should be managed. All styling for the user interface must be organized in a separate, globally implementable module. This allows for changes to fonts, typography, and colors by only modifying the styling module, without altering the core application code.
+4. How will errors be handled in the app development process, and what is the emphasis regarding token usage? Any errors that arise should lead to a change in version. There is a strong emphasis on token efficiency, taking into account token upload limits and restrictions for GPT chats, for both code generation and documentation.
+5. What are the specific accessibility requirements for the Bitties app, particularly concerning user interaction? The app must allow for full use by someone with only one hand and limited typing ability. All interface actions, including dashboard toggles and data entry, must be achievable with single-click/tap controls, dropdowns, and accessible buttons.
+6. Name at least three core app features beyond simply displaying live Bitcoin data. Beyond live BTC data, core features include a Dual-Currency Dashboard, Personal & Group Dashboards, Trader Analytics, a Speculation Tool, Manual BTC Entry, Notifications, Membership Management, and Trip Goal Logic.
+7. From which sources will the app retrieve Bitcoin price data and Augusta 2036 trip costs? The app will pull current and historical BTC price data (ZAR and USD) from public APIs like CoinGecko or CryptoCompare. Current and projected trip costs for Augusta 2036 will be retrieved via live web scraping or APIs where possible.
+8. List the specific colors and their primary uses as outlined in the styling guidelines. The primary color is Blue (#0656A3) for branding and navigation. Secondary accent colors are Green (#00722D) for success, Yellow (#FFB81C) for alerts, and Red (#D62718) for errors. White (#FFFFFF) is for backgrounds, and Very Light Grey (#F6F7FB) for surfaces.
+9. What font must be used throughout the Bitties app, and what aesthetic is the UI expected to echo? All text must use the "Poppins" font. The UI is expected to echo the Mastersí premium, elegant aesthetic, incorporating color into charts, progress bars, and other elements.
+10. Describe the automation requirements for app setup and data management. All data structure creation, migration, and completion must be 100% automated, with no manual setup or configuration prompted from the user. The entire app setup, data migration, and UI deployment should be as close to "single upload, everything works" as possible.
+Answer Key
+1. The Bitties app is designed to help the creator and their friends track their shared Bitcoin investments. Its purpose is to provide live updates on their current status, display live charts related to their holdings, and include member-specific tabs.
+2. The two programming languages under consideration are Python and PowerShell. A crucial requirement for any script's output is that it must be a single, copy-and-pasteable block, eliminating the need for manual folder or file creation.
+3. The styling for the user interface must be modular, organized in a separate tab for global implementation. This setup ensures that any modifications to fonts, typography, or colours only require changes within this dedicated styling module, without affecting the core application code.
+4. Errors encountered during development must result in a version change. There's a strong emphasis on maintaining token efficiency, particularly considering the upload limits and restrictions of GPT chats, for all generated code and documentation.
+5. The Bitties app must be fully usable by individuals with only one hand and limited typing ability. All interactive elements, including dashboard toggles, scenario simulations, and data entry, must be operable via single-click/tap controls, dropdowns, and accessible buttons.
+6. Beyond live Bitcoin data, core features include a Dual-Currency Dashboard (ZAR and USD toggle), Personal & Group Dashboards, Trader Analytics (charts, P&L, volatility), a Speculation Tool (what-if scenarios), Manual BTC Entry, Notifications (email/WhatsApp), Membership Management, and Trip Goal Logic.
+7. The app will retrieve current and historical BTC price data (ZAR and USD) from public APIs such as CoinGecko or CryptoCompare. Current and projected trip costs for Augusta 2036 (flights, accommodation, tickets, spending) are to be sourced via live web scraping or APIs where feasible.
+8. The primary colour is Blue (#0656A3) for branding, navigation, and primary text. Secondary accents include Green (#00722D) for success, Yellow (#FFB81C) for alerts, and Red (#D62718) for errors. White (#FFFFFF) serves as the main background, and Very Light Grey (#F6F7FB) for surfaces.
+9. The "Poppins" font must be used consistently throughout the Bitties app for all text. The UI is specifically designed to emulate the premium and elegant aesthetic of the Masters Tournament, integrating its signature colours into charts, progress bars, buttons, and navigation.
+10. All app setup, data structure creation, migration, and completion must be 100% automated, eliminating any manual user configuration prompts. The goal is for the entire application to be deployable with a "single upload, everything works" approach.
+Essay Format Questions
+1. Discuss the advantages and disadvantages of choosing Python versus PowerShell for the Bitties app, considering the specific requirements outlined (e.g., mobile/web app, modularity, GitHub/Cloudflare integration).
+2. Analyse how the proposed modular styling approach contributes to the maintainability, scalability, and reusability of the Bitties app's user interface. How does this align with modern software development best practices?
+3. Elaborate on the significance of the "Mastersí premium, elegant aesthetic" and the specific UI/UX design elements (colours, fonts, rounded corners, shadows, micro-interactions, spacing) that contribute to achieving this. How do these choices impact user perception and accessibility?
+4. Examine the various data sources and live updating mechanisms required for the Bitties app. How will the app ensure data accuracy, robustness against missing/incomplete data, and real-time updates for critical features like BTC prices and trip costs?
+5. Beyond the explicit features, discuss how the "future feature addition" and "robust gap-handling" mentioned in the brief imply a need for a highly extensible and resilient architecture. Provide examples of how the specified requirements (e.g., modularity, error management, speculation tool) lay the groundwork for such an architecture.
+Glossary of Key Terms
+* API (Application Programming Interface): A set of defined rules that enable different software applications to communicate with each other. In Bitties, used for BTC price data (CoinGecko, CryptoCompare) and potentially trip costs.
+* Bitties: The name of the online mobile and web application being developed, also serving as the project name.
+* Cloudflare: A web infrastructure and security company that provides content delivery network (CDN) services, DDoS mitigation, and internet security services. Mentioned as a potential utility for the app.
+* CSS Variables: Custom properties in CSS that allow developers to define values (like colours or fonts) once and reuse them throughout their stylesheet, simplifying global style changes.
+* Dual-Currency Dashboard: A core app feature that allows users to instantly toggle all charts and values between two specified currencies, specifically ZAR (South African Rand) and USD (United States Dollar).
+* GitHub: A web-based platform for version control and collaboration, primarily for software development. It's suggested for managing the Bitties project code.
+* Live Charts: Real-time graphical representations of data, such as Bitcoin price movements, intended to provide immediate visual updates to users.
+* Modular Build: A software development approach where the application is broken down into independent, interchangeable modules. This allows for easier development, maintenance, and future additions.
+* One-click Navigation: A user interface design principle ensuring that users can access any part of the application with a single click or tap, enhancing accessibility and ease of use.
+* Poppins Font: A specific sans-serif typeface that is mandated for all text within the Bitties application to maintain a consistent and modern aesthetic.
+* PowerShell: A cross-platform task automation and configuration management framework from Microsoft, consisting of a command-line shell and scripting language. One of the two language options for building the app.
+* Project File: A file that contains all the necessary information and settings for a software project, enabling its organisation and management.
+* Python: A high-level, interpreted programming language widely used for web development, data analysis, artificial intelligence, and more. One of the two language options for building the app.
+* README File: A text file included in a software project directory, providing essential information about the project, such as its purpose, how to install and use it, and contributing guidelines.
+* Rounded Corners: A modern UI design element where the corners of visual elements (like cards and buttons) are curved rather than sharp, typically with a radius of 12-20 pixels in this project.
+* Single Block Output: A specific requirement for script outputs, meaning the entire code or generated content should be presented as one continuous block that can be directly copied and pasted, avoiding fragmented outputs.
+* Speculation Tool: A "what-if" simulator within the app that allows users to experiment with different variables (e.g., contribution amounts, BTC price, inflation) to instantly update financial forecasts and scenarios.
+* Token Efficiency: A crucial consideration in the development process, particularly in relation to AI model interactions (like GPT chats), focusing on minimizing the number of tokens used to stay within limits and restrictions.
+* Typography: The art and technique of arranging type to make written language legible, readable, and appealing when displayed. In the Bitties app, it specifically refers to the management of fonts, sizes, and styles.
+* User Interface (UI): The visual elements and interactive components of a software application that users interact with.
+* WCAG AA/AAA Contrast: Standards set by the Web Content Accessibility Guidelines (WCAG) for minimum contrast ratios between text and its background, ensuring readability for users with visual impairments. AA is a minimum, AAA is enhanced.
+* Web Scraping: An automated method used to extract large amounts of data from websites. Used in Bitties to retrieve Augusta 2036 trip costs.Bottom of Form
+
+End of Document
+---------------------------------------
+New Document
+Founding Docs - Bitties - App Build - 06082025.txt
+End of Document
+---------------------------------------

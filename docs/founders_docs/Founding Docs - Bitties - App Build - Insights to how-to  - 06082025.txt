@@ -1,0 +1,246 @@
+“Okay, great. That was just a test to make sure that you were awake. I need your assistance with respects to Claude GPT. That's going to help me do some coding, and the focus is going to be on getting Claude to understand what I want off the bat, and being able for Claude to keep its memory. How can I go about this?”
+00:22
+
+ChatGPT said:
+To get Claude to understand what you want right from the start, it's helpful to provide a clear and detailed prompt. You can include context about your project, what you're trying to achieve, and any specific preferences or guidelines you have. If you want Claude to keep memory, you'll need to use Anthropic's tools that support memory features, if available, and structure your interactions so that you give consistent information. Also, having a reference document or a README that you can share with Claude at the beginning of each session can help maintain continuity.
+
+
+
+
+
+
+
+You said:
+“Existing documents on GitHub and it's a respiratory for”
+00:05
+
+ChatGPT said:
+If you have existing documents
+
+
+
+
+
+
+
+You said:
+Transcript Unavailable
+00:01
+
+ChatGPT said:
+Yes, absolutely! If you have existing documents on GitHub, you can share the link to your repository with Claude. This will give the model a clear understanding of your project's structure, code, and requirements. Just make sure the repository is public or that you've granted the necessary access permissions. If there's a README or any documentation, that will definitely help in getting Claude up to speed quickly.
+
+
+
+
+
+
+
+You said:
+“How do I go about telling Claude to stick to the context or the relevance?”
+00:08
+
+
+2/2
+
+ChatGPT said:
+To keep Claude focused
+
+
+
+
+
+
+
+You said:
+“For example, I told it that I want certain fonts and typography on my mobile app and web app, but whenever there's an error, it simplifies the code and forgets about everything.”
+00:16
+
+ChatGPT said:
+That can definitely be a bit tricky. One approach is to make sure that you restate your preferences whenever you notice that the model is drifting off track. You can also include those preferences in every prompt, kind of like a reminder. Another option is to use detailed documentation or a style guide that you can share with Claude at the start of each session so it always has that context.
+
+
+
+
+
+
+
+You said:
+“And how do I tell Claude to go about error changes by changing the version that it has for token efficiencies?”
+00:08
+
+ChatGPT said:
+To ensure token efficiency and keep track of changes, you can instruct Claude to maintain a version history of your code or documents. This means that every time there's an update or an error correction, you can have it save a new version with a version number or a timestamp. This way, you can always refer back to previous versions if needed, and it helps keep the context intact without having to start from scratch each time.
+
+
+
+
+
+
+
+You said:
+“And can it change the previous version that it gave me by changing certain lines where the error occurs? Because it seems to be always giving me a new code that isn't necessary, and it's only maybe a syntax error on line midway through the code.”
+00:19
+
+ChatGPT said:
+Yes, you can definitely guide Claude to focus only on the specific lines that need correction instead of generating entirely new code. When you provide the prompt, you can be very specific about which lines or sections have the error and ask Claude to only correct those parts. This way, the rest of your
+
+Yes, you can definitely guide Claude to focus only on the specific lines that need correction. When you spot an error, you can provide the exact lines or the specific section that needs fixing, and ask Claude to update just that part of the code. This way, it won't generate an entirely new version, but will make targeted changes, keeping everything else intact.
+
+
+
+
+
+
+
+You said:
+“And when coding takes place, is it possible to have a typography, I don't know, module that it always references when it's coding and put a placeholder in certain code scripts to reference automatically?”
+00:20
+
+ChatGPT said:
+Yes, you can definitely create a typography module or a style guide file that your code references. This can be a centralized place where you define all your fonts, styles, and any other design elements. Then, whenever you're coding, you can simply reference that module, and it will automatically apply the correct styles. This approach not only ensures consistency but also makes maintenance and updates much easier.
+
+
+
+
+
+
+
+You said:
+“So the style guide is that style.html, or style.css. I'm using Python and command prompt to build this. And I just need to understand what I need to tell it for those certain modules or code scripts, just to ensure that it sticks to the story.”
+00:26
+
+ChatGPT said:
+In this case, if you're building a web app, the style guide would typically be a CSS file, like style.css, that you link to your HTML. You can define all your fonts, colors, and other design elements in that CSS file. Then, whenever you're coding, you just need to make sure that your HTML files reference that CSS file. This ensures that all your pages and components follow the same design rules consistently.
+
+
+
+
+
+
+
+You said:
+“Ok, telling Claude what styles those are, what are the fundamentals when it comes to styling a web app and a mobile app.”
+00:11
+
+ChatGPT said:
+When it comes to styling both a web app and a mobile app, consistency and responsiveness are key. You’ll want to define your typography, color scheme, spacing, and other design elements in one place, like your CSS file for a web app. Make sure your styles are flexible so they look good on different screen sizes. Using relative units like percentages, ems, or rems can help with that. For mobile apps, you’d typically rely on platform-specific style guidelines, like Material Design for Android or Human Interface Guidelines for iOS, but the core principles of consistency and responsive design still apply across the board.
+
+
+
+
+
+
+
+You said:
+“Okay, so give me a list of 10 things that are required for Claude to know what the style guide must entail for both web and mobile app that I can aggregate and tell Claude, where it can make the style guide and work together. Because whenever I do a change, it goes back to basic HTML, and it's very rudimentary. It's like the app looks like it's from 1999, when I've asked for another GPT for style guides for 2020-2025, contemporary style with certain typography like poppins and the likes, but it just goes back to that basic HTML. So I don't want to be repeating myself every single time about what the color scheme must be and the font must be. I don't know anything about spacing or percentages or button styling and inactive and active buttons and tabs and all that. So maybe you can include that. What do you think?”
+00:58
+
+ChatGPT said:
+Absolutely, having a comprehensive style guide that covers everything will make things a lot easier. Here are ten key elements you can include for both your web and mobile apps:
+
+Typography: Specify the fonts you want to use, like Poppins, along with font sizes, weights, and line heights.
+
+Color Scheme: Define primary, secondary, and accent colors, as well as colors for text, backgrounds, and any interactive elements.
+
+Spacing and Layout: Outline the margins, padding, and grid systems you'll use to ensure consistent spacing.
+
+Button Styles: Describe the look of buttons in different states, such as normal, hover, active, and disabled, including colors, borders, and shadows.
+
+Forms and Inputs: Set styles for input fields, checkboxes, radio buttons,
+
+
+
+
+
+
+
+You said:
+“Thank you.”
+00:00
+
+ChatGPT said:
+…dropdowns, and other form elements, ensuring they match your overall design.
+
+Navigation: Define the style for menus, tabs, and other navigational elements, making sure they’re user-friendly and consistent.
+
+Icons and Imagery: Specify the style and usage of icons, including size and color, to keep everything visually cohesive.
+
+Responsive Design: Ensure that your styles adapt well to different screen sizes and orientations, using media queries or flexible grid layouts.
+
+Animations and Transitions: Describe any animations or transitions for interactive elements to enhance user experience.
+
+Accessibility: Make sure that your design is accessible, with sufficient color contrast, readable fonts, and focus states for interactive elements.
+
+By consolidating all these details into one style guide, you can share it with Claude so that it consistently applies your design preferences, ensuring that your app always looks polished and up-to-date.
+
+
+
+
+
+
+
+You said:
+“So when it comes to coding and building an app or building anything with Python or command prompts using GitHub and the likes, is the basic flow where you describe what you want, like a readme or a brief, and then you give it its style, and then it provides... Obviously, there's the front end and the back end of things. But what I'm trying to get at is do you build a foundation first and then add onto that? So, for example, I want the basic web app, for want of a better term, and then I've built the app, and now I want to change that app to look different. But this time, I want it to be, for example, a 3D app, one of these new age apps or web pages that they are. Granted, web page or web sites are different to apps, I understand that, but there's a lot of new styles and preferences for apps nowadays. So if I make a web app or mobile app yesterday, and today another style becomes relevant, and I want to change it to that, how does the code know how to change that?”
+01:08
+
+ChatGPT said:
+Yes, you’re on the right track! Typically, you start with a solid foundation for your app or website, including both the front end and the back end. The front end is where your style guide comes into play, ensuring that everything looks consistent and matches your desired aesthetic.
+
+When new styles or trends emerge, you can update your style guide and your CSS. This means you don’t necessarily have to rewrite your entire app; you just update the styles in one place, and those changes will reflect throughout the app. This modular approach helps keep your design flexible and up-to-date. So, in short, by maintaining a well-structured style guide and updating it as needed, your app can easily evolve with new design trends.
+
+
+
+
+
+
+
+You said:
+“Ok, thank you for that. Let's put a pin in the style guide for now, and any styling. Now moving along, with regards to APIs, I want to put a chat AI assistance bot in my web app and mobile app, and I want to connect certain, or I want certain data from certain websites, like CoinGecko, if I want Bitcoin, or a weather app, or whatever the case may be, the APIs that are involved. So, will Claude prompt me on when I need APIs, and need to sign up for something, or get something, or RSS feeds? Can you explain how that live data is scraped and shared with the mobile and web app, and the coding and the scripts? And what generally I need to do and understand, if you could just paint a picture, like dumb it down, like you're speaking to a 13-year-old, about APIs and live data and scraping.”
+01:02
+
+ChatGPT said:
+Sure, I can break it down simply! Think of an API as a bridge that lets your app talk to another service and get the information it needs. For example, if you want to show Bitcoin prices in your app, you can use an API from a website like CoinGecko. Your app will send a request through this bridge, and CoinGecko will send back the latest Bitcoin prices.
+
+To use an API, you usually need to sign up for an API key, which is like a special password that lets your app access the service. Once you have that, you can write some code that tells your app how to ask for the data and what to do with it when it comes back.
+
+So, in short, you find the API you need, sign up for access, and then add the code in your app to fetch and display that live data.
+
+
+
+
+
+
+
+You said:
+“Okay, I understand. Thanks for that awesome explanation. And then when it comes to calculations, like I'm doing a Bitcoin app currently, and I'm also working with a factory floor app, but for the Bitcoin app, there's certain members, and they all got equal shares, and the Bitcoin price is X, and the holdings is Y, therefore they each got a certain proportion or equal share. Does the app calculate that automatically, and there's also contributions into the fund or the pool, and there's also purchase of Bitcoin that takes place by an individual? Does the app know how to calculate that?”
+00:39
+
+ChatGPT said:
+Yes, the app can definitely handle those calculations automatically! You just need to set up the logic in your code. For example, if all members have equal shares, you can divide the total holdings by the number of members to find out each member’s share. When someone makes a new contribution or when more Bitcoin is purchased, the app can update the total holdings and then recalculate each member’s share accordingly. It’s all about writing the right formulas and making sure the app updates those numbers whenever there’s a change. Once you have that logic in place, the app will do the math for you automatically!
+
+
+
+
+
+
+
+You said:
+“Okay and then I've been, we've been contributing to a fund for many years now and it's only today that we've decided to build this app and there's historical data that that's taken place like the original members, some members left, another member came in and bought another person's shares and then another member left and there was no replacement therefore Bitcoin was taken out but and therefore the number of members changed which granted everyone's share stays the same but the total Bitcoin holding reduced and it's divided by the number of members now so there's no one loses money but and then there's contributions every month by every single member and there's one purchase generally every month or every second month or third month by a responsible person and what I'm trying to get at is that historical data that's taken place from say I don't know 2021 or 2022 until now 2025 I've got it on, I've got it, I've got that data for me, are we able to put that data or historical data into a placeholder or something or a module where it can be referred to as opposed to be because it's like 350 entries as opposed to always being written in the code should the code adjust and can we can the code or can the cloud understand to make the code that it refers to that historical data and yeah.”
+01:40
+
+ChatGPT said:
+Absolutely! You can store all that historical data in a separate file or database instead of embedding it directly into your code. That way, the app can just pull the data whenever it needs it. This approach makes your code cleaner and more flexible.
+
+When you set up the code, you can make it so that it references this historical data file or database whenever it needs to calculate the current shares, contributions, or any changes over
+
+Absolutely! You can definitely store all that historical data in a separate module or a database instead of hard-coding it. This way, the code can just reference that data whenever it needs to perform calculations or show historical trends. You can think of it like having a separate file or database that the app pulls information from. That way, the code stays clean and organized, and it can easily update and use that historical data whenever needed.
+
+
+
+
+
+
+
+You said:
+“Okay, let's put a pin in it for now and I'll get that to you. Thanks for everything.”

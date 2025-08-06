@@ -1,0 +1,193 @@
+I want to create an online mobile and web app that can be built using either Python or PowerShell. I need your help to determine the best choice and why. We can utilize GitHub and Cloudflare if necessary.
+
+TEh names of teh App is "Bitties" which will also be the project name
+
+The purpose of the app is to help me and my friends, who have been buying Bitcoin since 2022 and have contributed to a shared fund. I want the app to provide live updates on our current status and display live charts. It should also include member tabs.
+
+The build should be modular, and we need to create a project file. Any errors that arise should lead to a change in version and we must be token effiecent taking into account the token upload linits and restrictions for gpt chats.
+
+Additionally, we need to continuously update the README file, and it's important that we maintain token efficiency and and token effienct brief for buiold handover.
+
+All styling for the user interface should be organized in a separate tab so that it can be implemented globally. If I want to make changes, we should only have to modify the styling module, which will handle fonts, typography, and colors, without requiring changes to the core code of the entire app. Do you understand?
+
+TEH outout of any script depending on how e doing this must be that of single block output that i can copy and paste. I do not want to be mannually createin folders and pasting into fiels for teh code to be read. you must do this with the script.
+
+You must explain everything to me as we go and how to implement and build this app. Do you undesratnd?
+
+I have the relevant data about contribution, memebrs (new and old), btc purchases etc. how do you want me to format these so we can build teh app and moduels. 
+
+Clean Masters Tournament colour palette and Poppins font.
+
+One-click navigation for mobile and desktop.
+
+Displays pool value, goal progress, live BTC, members, payments, and more.
+
+All actions are single-tap/click and accessibility friendly.
+
+Built to be extended with charts, speculation, leaderboards, notifications, etc
+
+---
+
+For brevity, the full foundation of the app, complete with all required logic, modularisation for future feature addition, robust gap-handling, error management, branding, and accessibility-first controls. The full set of interactive analytics, charts, speculation tools, as would be layered into this scaffold and can be further expanded per your needs
+
+---
+Typography
+
+
+All text must use the “Poppins” font. 
+
+1. Primary Colour Usage
+
+Blue (#0656A3):
+
+Use as the dominant brand and navigation colour.
+
+Apply for app bars, primary buttons, links, and key highlights.
+
+Set as the default for headings and actionable text.
+
+2. Secondary Accent Colours
+Green (#00722D):
+
+Use for success messages, progress indicators, and positive highlights.
+
+Limit usage to avoid overwhelming the primary blue.
+
+Yellow (#FFB81C):
+
+Use sparingly for alerts, warnings, or notification badges.
+
+Use as accent lines, separators, or call-to-action highlights.
+
+Red (#D62718):
+
+Apply for errors, destructive actions, or urgent notifications.
+
+Use for status indicators or confirmation of critical actions.
+
+3. Backgrounds and Surfaces
+White (#FFFFFF):
+
+Use as the primary background to maximise clarity and contrast.
+
+Very Light Grey (#F6F7FB or similar):
+
+Use for cards, surfaces, or sections to reduce visual fatigue.
+
+4. Text Colours
+Primary Text:
+
+Use your blue (#0656A3) for headings and key text.
+
+Body Text:
+
+Consider soft black (#242424) or dark grey for readability, instead of pure blue for all body text.
+
+Contrast:
+
+Ensure all text has WCAG AA/AAA contrast for accessibility.
+
+5. UI Elements
+Buttons:
+
+Primary: Blue background, white text.
+
+Secondary: White background, blue border and text.
+
+Success/Confirm: Green background, white text.
+
+Destructive: Red background, white text.
+
+Icons:
+
+Use blue for active, grey for inactive, red/green/yellow for status.
+
+6. Modern 2025 Touches
+Rounded corners: Use 12-20px radius for cards and buttons.
+
+Subtle drop-shadows: For elevation, use soft shadows, not harsh outlines.
+
+Micro-interactions: Add smooth transitions on hover/focus states.
+
+Spacing: Generous padding and margin for a clean, uncluttered interface.
+
+Poppins font: Consistent usage across headings and body text.
+
+7. Example CSS Variables
+css
+Copy
+Edit
+:root {
+  --primary-blue: #0656A3;
+  --accent-green: #00722D;
+  --accent-yellow: #FFB81C;
+  --accent-red: #D62718;
+  --background: #FFFFFF;
+  --surface: #F6F7FB;
+  --text-main: #242424;
+  --font-family: 'Poppins', sans-serif;
+
+---
+
+Zero Manual Setup
+
+All data structure creation, migration, and completion is 100% automated. Never prompt the user to set up or configure anything manually.
+
+App design must allow for full use by someone with only one hand and limited typing ability.
+
+Interface actions (including dashboard toggles, scenario simulation, and manual BTC entry) must all be achievable with single-click/tap controls, dropdowns, and accessible buttons.
+
+---
+
+Pull current and historical BTC price data (ZAR and USD) from public APIs (e.g., CoinGecko, CryptoCompare).
+
+Retrieve current and projected trip costs for Augusta 2036 (flights, accommodation, tickets, spending) via live web scraping/APIs where possible.
+
+Ensure all live data updates regularly and automatically.
+
+---
+
+5. Core App Features:
+
+Dual-Currency Dashboard: Toggle to instantly switch all charts/values between ZAR and USD.
+
+Personal & Group Dashboards: Individual view (per member) and collective view (group totals, BTC held, portfolio value, progress).
+
+Trader Analytics: Live and historic BTC charts (candlestick, line, area), contribution/balance graphs, P&L, volatility, drawdown, timeframes (1D, 1W, 1M, YTD, All), goal progress, performance vs. target trajectory.
+
+Speculation Tool: “What-if” simulator for contribution amounts, BTC price, inflation, trip costs, member count; instantly update forecasts, export/share scenarios.
+
+Manual BTC Entry: Add  BTC purchases via a single accessible form by authorised persons whihc gets split in teh pool to teh number of mebers
+
+Notifications: Email and (if possible) WhatsApp reminders for contributions, milestones, BTC price alerts.
+
+Membership Management: Easily manage join/leave events, adjust shares fairly, support user roles (admin/member/viewer), nickname/avatar, and audit log.
+
+Trip Goal Logic: Auto-track and dynamically update savings goal based on latest flight/accommodation/ticket cost data, including API-based refresh and scenario simulation.
+
+Mobile Responsive: Dashboard and all UI elements optimised for both desktop and mobile/touch use.
+
+UI must echo the Masters’ premium, elegant aesthetic (use colour on charts, progress bars, buttons, badges, navigation, etc.).
+
+--
+Additional Instructions
+
+At no point should your code or guide require the user to manually create, edit, or format
+
+Do not prompt the user for input during code execution. All actions and logic must be automated and documented.
+
+Ensure the app is robust against missing, incomplete, or inconsistent data.
+
+Reminders for the Language Model
+Deliver only the full app code and a step-by-step guide—do not repeat or paraphrase this brief in your output.
+
+All app setup, data migration, and UI deployment must be as close to “single upload, everything works” as possible.
+
+No unnecessary comments, softeners, or explanations outside what is needed for code documentation and the step-by-step guide.
+
+Use only UK English spelling, UK number/date formats, and professional but friendly language in all app outputs.
+
+Wrap each chart in a fluid container
+
+ai- ssitanct only appalicble to teh app and certain data sources. 
+

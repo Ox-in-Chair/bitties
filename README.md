@@ -221,6 +221,10 @@ Private project. All code, content, and data are not for public use, distributio
 ## Development Progress
 
 
+### Update: 2025-08-07 00:38
+- Fixed BTC calculator price field and added manual total holdings input (v1.3) - ensures accurate fund tracking
+
+
 ### Update: 2025-08-07 00:32
 - Fixed input field issues in transaction form (v1.2) - BTC fields now editable and auto-calculate properly
 

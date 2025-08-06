@@ -207,9 +207,12 @@ def api_record_purchase():
         with open('data/historical_data.json', 'r', encoding='utf-8') as f:
             history = json.load(f)
         
-        # Calculate new total holdings
-        previous_holdings = history['btc_purchases'][-1]['total_holdings'] if history['btc_purchases'] else 0
-        new_holdings = previous_holdings + purchase_data['btc_amount']
+        # Use manual total holdings from form
+        new_holdings = purchase_data.get('total_holdings')
+        if not new_holdings:
+            # Fallback: calculate if not provided
+            previous_holdings = history['btc_purchases'][-1]['total_holdings'] if history['btc_purchases'] else 0
+            new_holdings = previous_holdings + purchase_data['btc_amount']
         
         # Add new purchase
         new_purchase = {

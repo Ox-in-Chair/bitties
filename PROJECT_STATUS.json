@@ -1,0 +1,134 @@
+{
+  "project": "Bitties - Augusta 2036 Bitcoin Fund Tracker",
+  "last_updated": "2025-08-07T00:54:11.620117",
+  "current_version": "1.4",
+  "completed_features": {
+    "dashboard": {
+      "status": "\u2705 Complete",
+      "version": "1.0",
+      "features": [
+        "Live BTC prices (ZAR/USD) with 30-second refresh",
+        "Real historical data display (0.11107669 BTC)",
+        "Member contribution tracking",
+        "Portfolio value calculations",
+        "Augusta 2036 progress bar"
+      ]
+    },
+    "transaction_recording": {
+      "status": "\u2705 Complete",
+      "version": "1.4",
+      "features": [
+        "PIN protection (2580)",
+        "Payment verification",
+        "Manual total holdings input",
+        "Purchase confirmation dialog",
+        "Historical data auto-update"
+      ]
+    },
+    "data_management": {
+      "status": "\u2705 Complete",
+      "version": "1.0",
+      "features": [
+        "Historical import (Oct 2021 - July 2025)",
+        "Member transitions tracked",
+        "Rich Nischk withdrawal (0.01323 BTC)",
+        "JSON persistence with audit trail"
+      ]
+    },
+    "infrastructure": {
+      "status": "\u2705 Complete",
+      "version": "1.0",
+      "features": [
+        "Automated commit system",
+        "Masters Tournament theme",
+        "Version tracking",
+        "API endpoints"
+      ]
+    }
+  },
+  "known_issues": {
+    "btc_calculator": {
+      "status": "\u26a0\ufe0f Partially Working",
+      "issues": [
+        "BTC Price field is read-only (should be editable)",
+        "Scientific notation display (9e-8)",
+        "Arrow-only input restriction",
+        "Est. BTC to Buy not auto-calculating",
+        "BTC You'd Get not computing from inputs"
+      ]
+    }
+  },
+  "outstanding_features": {
+    "member_management": {
+      "priority": 1,
+      "estimated_time": "20 mins",
+      "features": [
+        "Add/remove members UI",
+        "Exit settlement calculations",
+        "Join fee calculations"
+      ]
+    },
+    "payment_capture": {
+      "priority": 2,
+      "estimated_time": "20 mins",
+      "features": [
+        "Individual payment recording",
+        "Bulk payment import",
+        "Payment history"
+      ]
+    },
+    "historical_charts": {
+      "priority": 3,
+      "estimated_time": "30 mins",
+      "features": [
+        "Portfolio growth chart",
+        "BTC price history",
+        "Contribution charts"
+      ]
+    },
+    "system_config": {
+      "priority": 4,
+      "estimated_time": "25 mins",
+      "features": [
+        "Monthly contribution settings",
+        "Effective date controls",
+        "Global configuration"
+      ]
+    },
+    "ledger_view": {
+      "priority": 5,
+      "estimated_time": "20 mins",
+      "features": [
+        "Transaction history",
+        "Month-end prices",
+        "Date filtering"
+      ]
+    },
+    "mobile_optimization": {
+      "priority": 6,
+      "estimated_time": "15 mins",
+      "features": [
+        "Responsive design",
+        "Touch controls",
+        "Single-hand operation"
+      ]
+    },
+    "export_reports": {
+      "priority": 7,
+      "estimated_time": "25 mins",
+      "features": [
+        "PDF generation",
+        "CSV exports",
+        "Tax reporting"
+      ]
+    }
+  },
+  "technical_details": {
+    "btc_holdings": 0.11107669,
+    "active_members": 7,
+    "total_contributions": 99600,
+    "last_purchase": "2025-07-21",
+    "pin_code": "2580",
+    "api_refresh_rate": 30
+  }
+}

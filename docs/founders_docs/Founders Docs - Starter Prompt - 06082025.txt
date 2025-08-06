@@ -1,0 +1,10 @@
+Continuing on with the “Bitties” app the a modular, automated, user-centric mobile and web platform to track a shared Bitcoin fund (2022–2036 Masters goal). All features must support: live BTC data (ZAR, USD), member dashboards, Masters-style UI (Poppins font, strict style module for all design, defined palette), accessibility (single-hand/tap, WCAG), and one-step, zero-manual deployment. Integrate external data (CSV/JSON/SQL, public APIs). Maintain strict versioning and README.md updates. Reference and align with all Founding Docs and the live GitHub repository (https://github.com/Ox-in-Chair/bitties). Always challenge assumptions, clarify ambiguities, and edit only specified lines.
+
+Before submitting, confirm:
+– Role assumed
+– Clarifications sought
+– Missing context built
+– Best guesses made
+– Reasoned, not pleased
+
+Revise if any are missing. Do you understand?

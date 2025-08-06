@@ -195,6 +195,10 @@ Access at: http://localhost:5000/dashboard
 ## Development Progress
 
 
+### Update: 2025-08-07 01:15
+- Added Member Management UI (v1.0): View members, add with entry fee calculation, remove with BTC settlement. PIN protected. Tracks all member transitions.
+
+
 ### Update: 2025-08-07 01:08
 - Redesigned roadmap for SA professional traders (v1.7): Serious analytics, multi-crypto tracking, separate news tabs, SA-specific features like load shedding and Luno arbitrage. No gamification.
 

@@ -1,0 +1,372 @@
+# Create member management interface v1.0
+
+member_template = '''{% extends "base.html" %}
+{% block title %}Bitties - Member Management{% endblock %}
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h1 style="color: var(--primary-blue); margin-bottom: 2rem;">Member Management</h1>
+        
+        <!-- PIN Protection Modal -->
+        <div id="pinModal" class="modal active">
+            <div class="modal-content" style="max-width: 400px;">
+                <h2 style="text-align: center; margin-bottom: 1.5rem;">Admin Access Required</h2>
+                <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 1.5rem;">
+                    <input type="password" id="pin1" maxlength="1" style="width: 50px; height: 50px; text-align: center; font-size: 24px;" class="form-control">
+                    <input type="password" id="pin2" maxlength="1" style="width: 50px; height: 50px; text-align: center; font-size: 24px;" class="form-control">
+                    <input type="password" id="pin3" maxlength="1" style="width: 50px; height: 50px; text-align: center; font-size: 24px;" class="form-control">
+                    <input type="password" id="pin4" maxlength="1" style="width: 50px; height: 50px; text-align: center; font-size: 24px;" class="form-control">
+                </div>
+                <div id="pinError" style="color: var(--accent-red); text-align: center; margin-bottom: 1rem; display: none;">
+                    Incorrect PIN. Try again.
+                </div>
+                <button onclick="checkPIN()" class="btn btn-primary" style="width: 100%;">Submit</button>
+            </div>
+        </div>
+
+        <!-- Main Content (hidden until PIN verified) -->
+        <div id="mainContent" style="display: none;">
+            
+            <!-- Current Members -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <div class="card-header">
+                    <h2 class="card-title">Active Members</h2>
+                    <button onclick="showAddMember()" class="btn btn-primary">Add Member</button>
+                </div>
+                <div id="members-list">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Member Details Modal -->
+            <div id="memberModal" class="modal">
+                <div class="modal-content" style="max-width: 600px;">
+                    <h2 id="memberModalTitle">Member Details</h2>
+                    <div id="memberDetails">
+                        <!-- Populated dynamically -->
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <button onclick="closeMemberModal()" class="btn btn-primary">Close</button>
+                        <button id="removeMemberBtn" onclick="initiateMemberRemoval()" class="btn btn-primary" style="background: var(--accent-red); margin-left: 10px;">Remove Member</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Member Modal -->
+            <div id="addMemberModal" class="modal">
+                <div class="modal-content" style="max-width: 600px;">
+                    <h2>Add New Member</h2>
+                    
+                    <!-- Entry Fee Calculator -->
+                    <div class="card" style="margin: 1rem 0; background: var(--surface);">
+                        <h3>Entry Fee Calculation</h3>
+                        <div class="grid grid-2" style="gap: 1rem; margin-top: 1rem;">
+                            <div>
+                                <div class="stat-label">Current Fund Value</div>
+                                <div class="stat-value" id="currentFundValue">Calculating...</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Required Entry Fee</div>
+                                <div class="stat-value" id="entryFee" style="color: var(--accent-green);">Calculating...</div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 1rem; color: var(--text-muted);">
+                            Entry fee ensures new member owns equal share (1/8) of fund
+                        </p>
+                    </div>
+                    
+                    <form id="addMemberForm" onsubmit="addNewMember(event)">
+                        <div style="margin-bottom: 1rem;">
+                            <label>Member Name</label>
+                            <input type="text" id="newMemberName" class="form-control" required>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <label>Entry Fee Paid (ZAR)</label>
+                            <input type="number" id="entryFeePaid" class="form-control" step="0.01" required>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <label>Join Date</label>
+                            <input type="date" id="joinDate" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Member</button>
+                        <button type="button" onclick="closeAddMember()" class="btn btn-primary" style="background: var(--text-muted); margin-left: 10px;">Cancel</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Historical Members -->
+            <div class="card">
+                <h2 class="card-title">Historical Members</h2>
+                <div id="historical-members">
+                    <!-- Will be populated -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+const correctPIN = '2580';
+let currentMemberId = null;
+let members = [];
+let fundData = {};
+
+// PIN verification
+document.querySelectorAll('#pinModal input').forEach((input, index) => {
+    input.addEventListener('input', (e) => {
+        if (e.target.value && index < 3) {
+            document.querySelector(`#pin${index + 2}`).focus();
+        }
+        if (index === 3 && e.target.value) {
+            checkPIN();
+        }
+    });
+});
+
+function checkPIN() {
+    const pin = document.getElementById('pin1').value + 
+                document.getElementById('pin2').value + 
+                document.getElementById('pin3').value + 
+                document.getElementById('pin4').value;
+    
+    if (pin === correctPIN) {
+        document.getElementById('pinModal').style.display = 'none';
+        document.getElementById('mainContent').style.display = 'block';
+        loadMembers();
+    } else {
+        document.getElementById('pinError').style.display = 'block';
+        for (let i = 1; i <= 4; i++) {
+            document.getElementById(`pin${i}`).value = '';
+        }
+        document.getElementById('pin1').focus();
+    }
+}
+
+async function loadMembers() {
+    try {
+        // Load members
+        const histResponse = await fetch('/api/fund/history');
+        const history = await histResponse.json();
+        members = history.members;
+        
+        // Load fund data
+        const fundResponse = await fetch('/api/fund/summary');
+        fundData = await fundResponse.json();
+        
+        // Display active members
+        const activeMembers = members.filter(m => m.status === 'active');
+        const activeMembersHtml = activeMembers.map(member => {
+            const contribution = fundData.member_contributions[member.name] || 0;
+            const sharePercent = (100 / activeMembers.length).toFixed(1);
+            
+            return `
+                <div class="member-card" style="cursor: pointer;" onclick="showMemberDetails(${member.id})">
+                    <div class="member-avatar">${member.name.split(' ').map(n => n[0]).join('')}</div>
+                    <div style="flex: 1;">
+                        <div style="font-weight: 600;">${member.name}</div>
+                        <div style="color: var(--text-muted);">
+                            Contributed: R${contribution.toLocaleString()} | Share: ${sharePercent}%
+                        </div>
+                        <div style="font-size: 0.875rem; color: var(--text-muted);">
+                            Joined: ${new Date(member.joined_date).toLocaleDateString()}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+        
+        document.getElementById('members-list').innerHTML = activeMembersHtml || '<p>No active members</p>';
+        
+        // Display historical members
+        const historicalMembers = members.filter(m => m.status === 'left');
+        const historicalHtml = historicalMembers.map(member => {
+            const contribution = fundData.member_contributions[member.name] || 0;
+            
+            return `
+                <div class="member-card" style="opacity: 0.7;">
+                    <div class="member-avatar" style="background: var(--text-muted);">${member.name.split(' ').map(n => n[0]).join('')}</div>
+                    <div>
+                        <div style="font-weight: 600;">${member.name}</div>
+                        <div style="color: var(--text-muted);">
+                            Total Contributed: R${contribution.toLocaleString()}
+                        </div>
+                        <div style="font-size: 0.875rem; color: var(--text-muted);">
+                            ${new Date(member.joined_date).toLocaleDateString()} - ${new Date(member.leave_date).toLocaleDateString()}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+        
+        document.getElementById('historical-members').innerHTML = historicalHtml || '<p>No historical members</p>';
+        
+    } catch (error) {
+        console.error('Error loading members:', error);
+    }
+}
+
+async function showMemberDetails(memberId) {
+    const member = members.find(m => m.id === memberId);
+    if (!member) return;
+    
+    currentMemberId = memberId;
+    const contribution = fundData.member_contributions[member.name] || 0;
+    const activeCount = members.filter(m => m.status === 'active').length;
+    const currentShare = fundData.total_btc_acquired / activeCount;
+    
+    let detailsHtml = `
+        <div class="grid grid-2" style="gap: 1rem; margin-bottom: 1rem;">
+            <div>
+                <div class="stat-label">Total Contributed</div>
+                <div class="stat-value">R${contribution.toLocaleString()}</div>
+            </div>
+            <div>
+                <div class="stat-label">Current BTC Share</div>
+                <div class="stat-value">${currentShare.toFixed(8)} BTC</div>
+            </div>
+        </div>
+        <div class="grid grid-2" style="gap: 1rem;">
+            <div>
+                <div class="stat-label">Join Date</div>
+                <div class="stat-value">${new Date(member.joined_date).toLocaleDateString()}</div>
+            </div>
+            <div>
+                <div class="stat-label">Status</div>
+                <div class="stat-value">${member.status}</div>
+            </div>
+        </div>
+    `;
+    
+    // If member wants to leave, show exit calculation
+    if (member.status === 'active') {
+        const btcPrice = await getCurrentBTCPrice();
+        const exitValue = currentShare * btcPrice;
+        
+        detailsHtml += `
+            <div class="card" style="margin-top: 1rem; background: var(--surface);">
+                <h4>Exit Settlement (if leaving today)</h4>
+                <p>BTC Share: ${currentShare.toFixed(8)} BTC</p>
+                <p>Current BTC Price: R${btcPrice.toLocaleString()}</p>
+                <p style="font-weight: 600; color: var(--accent-green);">
+                    Settlement Value: R${exitValue.toLocaleString()}
+                </p>
+            </div>
+        `;
+    }
+    
+    document.getElementById('memberModalTitle').textContent = member.name;
+    document.getElementById('memberDetails').innerHTML = detailsHtml;
+    document.getElementById('removeMemberBtn').style.display = member.status === 'active' ? 'inline-block' : 'none';
+    document.getElementById('memberModal').classList.add('active');
+}
+
+async function getCurrentBTCPrice() {
+    try {
+        const response = await fetch('/api/btc/price');
+        const data = await response.json();
+        return data.zar;
+    } catch (error) {
+        return 0;
+    }
+}
+
+async function showAddMember() {
+    // Calculate entry fee
+    const btcPrice = await getCurrentBTCPrice();
+    const activeCount = members.filter(m => m.status === 'active').length;
+    const fundValue = fundData.total_btc_acquired * btcPrice;
+    const entryFee = fundValue / activeCount; // Equal share
+    
+    document.getElementById('currentFundValue').textContent = `R${fundValue.toLocaleString()}`;
+    document.getElementById('entryFee').textContent = `R${entryFee.toLocaleString()}`;
+    document.getElementById('entryFeePaid').value = entryFee.toFixed(2);
+    document.getElementById('joinDate').valueAsDate = new Date();
+    document.getElementById('addMemberModal').classList.add('active');
+}
+
+function closeAddMember() {
+    document.getElementById('addMemberModal').classList.remove('active');
+    document.getElementById('addMemberForm').reset();
+}
+
+function closeMemberModal() {
+    document.getElementById('memberModal').classList.remove('active');
+}
+
+async function addNewMember(event) {
+    event.preventDefault();
+    
+    const memberData = {
+        name: document.getElementById('newMemberName').value,
+        entry_fee: parseFloat(document.getElementById('entryFeePaid').value),
+        join_date: document.getElementById('joinDate').value
+    };
+    
+    try {
+        const response = await fetch('/api/members/add', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(memberData)
+        });
+        
+        if (response.ok) {
+            alert('Member added successfully!');
+            closeAddMember();
+            loadMembers();
+        } else {
+            alert('Error adding member');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error adding member');
+    }
+}
+
+async function initiateMemberRemoval() {
+    const member = members.find(m => m.id === currentMemberId);
+    if (!member) return;
+    
+    const btcPrice = await getCurrentBTCPrice();
+    const activeCount = members.filter(m => m.status === 'active').length;
+    const btcShare = fundData.total_btc_acquired / activeCount;
+    const exitValue = btcShare * btcPrice;
+    
+    if (confirm(`Remove ${member.name}?\\n\\nThey will receive:\\n${btcShare.toFixed(8)} BTC\\nWorth R${exitValue.toLocaleString()}\\n\\nThis cannot be undone.`)) {
+        try {
+            const response = await fetch(`/api/members/${currentMemberId}/remove`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    exit_btc: btcShare,
+                    exit_value: exitValue,
+                    btc_price: btcPrice
+                })
+            });
+            
+            if (response.ok) {
+                alert(`${member.name} removed. BTC holdings reduced by ${btcShare.toFixed(8)}`);
+                closeMemberModal();
+                loadMembers();
+            }
+        } catch (error) {
+            alert('Error removing member');
+        }
+    }
+}
+
+// Initialize
+document.getElementById('pin1').focus();
+</script>
+{% endblock %}'''
+
+# Save template
+with open('app/templates/member_management.html', 'w', encoding='utf-8') as f:
+    f.write(member_template)
+
+print("✅ Created member management interface v1.0")
+print("Features:")
+print("- PIN protection (2580)")
+print("- View active/historical members")
+print("- Add members with entry fee calculation")
+print("- Remove members with exit settlement")
+print("- Automatic share calculations")

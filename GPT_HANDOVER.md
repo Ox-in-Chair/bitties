@@ -1,9 +1,9 @@
 # Bitties - GPT Handover v5 
-Generated: 2025/08/06 16:27:44.65 
+Generated: 2025/08/06 18:55:42.49 
  
 ## Quick Start 
 ``` 
-cd C:\Users\MikeS\OneDrive\BitcoinApp\bitties 
+cd C:\Users\mike\OneDrive\BitcoinApp\bitties 
 venv\Scripts\activate 
 python run.py 
 ``` 
@@ -47,3 +47,4 @@ https://github.com/Ox-in-Chair/bitties
 - Multiple /minimal routes caused errors (fixed) 
 - Dashboard works but needs modern CSS badly 
 - Use /minimal for demo, /dashboard for development 
+- Path varies: Work PC (MikeS), Home PC (mike) 

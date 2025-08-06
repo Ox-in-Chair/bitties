@@ -1,0 +1,271 @@
+<!-- Save this as: app/templates/dashboard.html -->
+{% extends "base.html" %}
+
+{% block title %}Bitties - Dashboard{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h1>Dashboard</h1>
+        
+        <!-- Debug Info -->
+        <div style="background: #f0f0f0; padding: 10px; margin-bottom: 20px; border-radius: 8px;">
+            <strong>Debug:</strong> <span id="debug-status">Loading...</span>
+        </div>
+        
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total BTC</div>
+                <div class="stat-value" id="total-btc">Loading...</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-label">Portfolio Value (ZAR)</div>
+                <div class="stat-value" id="portfolio-value">Loading...</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-label">BTC Price (ZAR)</div>
+                <div class="stat-value" id="btc-price">Loading...</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-label">Members</div>
+                <div class="stat-value" id="member-count">Loading...</div>
+            </div>
+        </div>
+
+        <!-- Simple Add Member Form -->
+        <div class="card">
+            <h2>Add Member</h2>
+            <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                <input type="text" id="member-name" placeholder="Enter member name" style="flex: 1; padding: 10px;">
+                <button onclick="addMember()" class="btn btn-primary">Add Member</button>
+            </div>
+            <div id="members-list">
+                <p>No members yet</p>
+            </div>
+        </div>
+
+        <!-- Simple Add Transaction Form -->
+        <div class="card">
+            <h2>Add Transaction</h2>
+            <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                <select id="transaction-member" style="flex: 1; padding: 10px;">
+                    <option value="">Select member first</option>
+                </select>
+                <input type="number" id="transaction-amount" placeholder="Amount (ZAR)" style="flex: 1; padding: 10px;">
+                <button onclick="addTransaction()" class="btn btn-primary">Add Transaction</button>
+            </div>
+            <div id="transactions-list">
+                <p>No transactions yet</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: #f6f7fb;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0656A3;
+}
+
+.card {
+    background: #f6f7fb;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background: #0656A3;
+    color: white;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+</style>
+
+<script>
+// Simple, working JavaScript
+console.log('Dashboard script loaded');
+
+// Load data when page loads
+window.onload = function() {
+    console.log('Page loaded, fetching data...');
+    document.getElementById('debug-status').textContent = 'Page loaded, fetching data...';
+    loadDashboard();
+};
+
+function loadDashboard() {
+    // Load portfolio
+    fetch('/api/portfolio')
+        .then(response => response.json())
+        .then(data => {
+            console.log('Portfolio data:', data);
+            document.getElementById('debug-status').textContent = 'Portfolio loaded';
+            
+            document.getElementById('total-btc').textContent = (data.total_btc || 0).toFixed(8);
+            document.getElementById('portfolio-value').textContent = 'R' + (data.current_value_zar || 0).toFixed(2);
+            document.getElementById('btc-price').textContent = 'R' + (data.current_btc_price_zar || 0).toFixed(0);
+            document.getElementById('member-count').textContent = data.member_count || 0;
+        })
+        .catch(error => {
+            console.error('Portfolio error:', error);
+            document.getElementById('debug-status').textContent = 'Error loading portfolio: ' + error;
+        });
+    
+    // Load members
+    fetch('/api/members')
+        .then(response => response.json())
+        .then(members => {
+            console.log('Members:', members);
+            updateMembersList(members);
+            updateMemberSelect(members);
+        })
+        .catch(error => {
+            console.error('Members error:', error);
+        });
+    
+    // Load transactions
+    fetch('/api/transactions')
+        .then(response => response.json())
+        .then(transactions => {
+            console.log('Transactions:', transactions);
+            updateTransactionsList(transactions);
+        })
+        .catch(error => {
+            console.error('Transactions error:', error);
+        });
+}
+
+function updateMembersList(members) {
+    const container = document.getElementById('members-list');
+    if (members.length === 0) {
+        container.innerHTML = '<p>No members yet</p>';
+        return;
+    }
+    
+    container.innerHTML = members.map(member => 
+        `<div style="padding: 10px; background: white; margin: 5px 0; border-radius: 8px;">
+            <strong>${member.name}</strong> - 
+            R${(member.total_contributed || 0).toFixed(2)} contributed - 
+            ${(member.btc_balance || 0).toFixed(8)} BTC
+        </div>`
+    ).join('');
+}
+
+function updateMemberSelect(members) {
+    const select = document.getElementById('transaction-member');
+    if (members.length === 0) {
+        select.innerHTML = '<option value="">Add members first</option>';
+        return;
+    }
+    
+    select.innerHTML = '<option value="">Select member</option>' + 
+        members.map(m => `<option value="${m.id}">${m.name}</option>`).join('');
+}
+
+function updateTransactionsList(transactions) {
+    const container = document.getElementById('transactions-list');
+    if (transactions.length === 0) {
+        container.innerHTML = '<p>No transactions yet</p>';
+        return;
+    }
+    
+    const recent = transactions.slice(-5).reverse();
+    container.innerHTML = recent.map(tx => 
+        `<div style="padding: 10px; background: white; margin: 5px 0; border-radius: 8px;">
+            ${new Date(tx.date).toLocaleDateString()} - 
+            R${tx.amount_zar.toFixed(2)} - 
+            ${tx.amount_btc.toFixed(8)} BTC
+        </div>`
+    ).join('');
+}
+
+function addMember() {
+    const name = document.getElementById('member-name').value.trim();
+    if (!name) {
+        alert('Please enter a name');
+        return;
+    }
+    
+    fetch('/api/members', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, status: 'active' })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Member added:', data);
+        document.getElementById('member-name').value = '';
+        loadDashboard();
+    })
+    .catch(error => {
+        console.error('Error adding member:', error);
+        alert('Error adding member');
+    });
+}
+
+function addTransaction() {
+    const memberId = document.getElementById('transaction-member').value;
+    const amount = parseFloat(document.getElementById('transaction-amount').value);
+    
+    if (!memberId || !amount || amount <= 0) {
+        alert('Please select a member and enter an amount');
+        return;
+    }
+    
+    fetch('/api/transactions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            type: 'contribution',
+            member_id: memberId,
+            amount_zar: amount
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Transaction added:', data);
+        document.getElementById('transaction-amount').value = '';
+        loadDashboard();
+    })
+    .catch(error => {
+        console.error('Error adding transaction:', error);
+        alert('Error adding transaction');
+    });
+}
+</script>
+{% endblock %}

@@ -1,0 +1,22 @@
+[
+  {
+    "type": "contribution",
+    "member_id": "c74dc161-f450-4b39-9214-039261ede881",
+    "amount_zar": 400,
+    "btc_price_zar": 2029737,
+    "btc_price_usd": 114123,
+    "amount_btc": 0.00019706986668716195,
+    "id": "635fdc5d-2c3f-4e53-b087-372c69b110b0",
+    "date": "2025-08-06T15:52:44.131950"
+  },
+  {
+    "type": "contribution",
+    "member_id": "c74dc161-f450-4b39-9214-039261ede881",
+    "amount_zar": 5890000,
+    "btc_price_zar": 2029737,
+    "btc_price_usd": 114123,
+    "amount_btc": 2.9018537869684593,
+    "id": "791ac070-cb01-4d65-bec3-ed3452af7863",
+    "date": "2025-08-06T15:52:57.965939"
+  }
+]

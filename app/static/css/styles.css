@@ -1,293 +1,280 @@
-
-/* Grid System */
-.grid {
-    display: grid;
-    gap: 1.5rem;
-}
-
-.grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-.grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-.grid-4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-
-/* Navigation */
-.navbar {
-    background: var(--primary-blue);
-    padding: 1rem 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-brand {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: white;
-    text-decoration: none;
-}
-
-/* Cards */
-.card {
-    background: var(--surface);
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    margin-bottom: 2rem;
-}
-
-/* Grid System */
-.grid {
-    display: grid;
-    gap: 1.5rem;
-}
-
-.grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-.grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-.grid-4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-
-/* Navigation */
-.navbar {
-    background: var(--primary-blue);
-    padding: 1rem 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-brand {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: white;
-    text-decoration: none;
-}
-
-/* Cards */
-.card {
-    background: var(--surface);
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    margin-bottom: 2rem;
-}
-
-/* Stat Cards */
-.stat-card {
-    background: white;
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    text-align: center;
-}
-
-.stat-label {
-    font-size: 0.875rem;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.stat-value {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary-blue);
-    margin: 0.5rem 0;
-}
-
-.stat-change {
-    font-size: 0.875rem;
-    font-weight: 500;
-}
-
-.stat-change.positive { color: var(--accent-green); }
-.stat-change.negative { color: var(--accent-red); }
-
-/* Stat Cards */
-.stat-card {
-    background: white;
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    text-align: center;
-}
-
-.stat-label {
-    font-size: 0.875rem;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.stat-value {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary-blue);
-    margin: 0.5rem 0;
-}
-
-.stat-change {
-    font-size: 0.875rem;
-    font-weight: 500;
-}
-
-.stat-change.positive { color: var(--accent-green); }
-.stat-change.negative { color: var(--accent-red); }
-
-/* Members */
-.member-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.5rem;
-    background: white;
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.member-avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%%;
-    background: var(--primary-blue);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 1.5rem;
-}
-
-/* Transactions */
-.transaction-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border-bottom: 1px solid var(--surface);
-}
-
-.transaction-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-}
-
-.transaction-icon.contribution {
-    background: rgba(0, 114, 45, 0.1);
-}
-
-.transaction-icon.purchase {
-    background: rgba(6, 86, 163, 0.1);
-}
-
-/* Progress Bar */
-.progress {
-    width: 100%%;
-    height: 24px;
-    background: var(--surface);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    margin-top: 1rem;
-}
-
-.progress-bar {
-    height: 100%%;
-    background: var(--accent-green);
-    border-radius: var(--border-radius);
-    transition: width 0.6s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 500;
-    font-size: 0.875rem;
-}
-
-/* Goal Section */
-.goal-progress {
-    background: white;
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.goal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.goal-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--primary-blue);
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.card-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--primary-blue);
-}
-
-/* Progress Bar */
-.progress {
-    width: 100%%;
-    height: 24px;
-    background: var(--surface);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    margin-top: 1rem;
-}
-
-.progress-bar {
-    height: 100%%;
-    background: var(--accent-green);
-    border-radius: var(--border-radius);
-    transition: width 0.6s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 500;
-    font-size: 0.875rem;
-}
-
-/* Goal Section */
-.goal-progress {
-    background: white;
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.goal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.goal-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--primary-blue);
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.card-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--primary-blue);
-}
+(
+echo import os
+echo.
+echo css_content = """/* Bitties - Premium Modern CSS */
+echo /* Masters Tournament Aesthetic - 2025 */
+echo.
+echo @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800^&display=swap');
+echo.
+echo :root {
+echo   /* Masters Tournament Colors */
+echo   --primary-blue: #0656A3;
+echo   --accent-green: #00722D;
+echo   --accent-yellow: #FFB81C;
+echo   --accent-red: #D62718;
+echo   --pure-white: #FFFFFF;
+echo   --soft-white: #FAFAFA;
+echo   --surface: #F6F7FB;
+echo   --text-primary: #1A1A1A;
+echo   --text-secondary: #4A5568;
+echo   --text-muted: #718096;
+echo   
+echo   /* Premium Shadows */
+echo   --shadow-sm: 0 2px 4px rgba(6, 86, 163, 0.04^);
+echo   --shadow-md: 0 4px 12px rgba(6, 86, 163, 0.08^);
+echo   --shadow-lg: 0 8px 24px rgba(6, 86, 163, 0.12^);
+echo   --shadow-xl: 0 16px 48px rgba(6, 86, 163, 0.16^);
+echo   
+echo   /* Spacing */
+echo   --space-sm: 1rem;
+echo   --space-md: 1.5rem;
+echo   --space-lg: 2rem;
+echo   --space-xl: 3rem;
+echo   
+echo   /* Border Radius */
+echo   --radius-sm: 8px;
+echo   --radius-md: 12px;
+echo   --radius-lg: 16px;
+echo   --radius-xl: 24px;
+echo }
+echo.
+echo * {
+echo   margin: 0;
+echo   padding: 0;
+echo   box-sizing: border-box;
+echo }
+echo.
+echo body {
+echo   font-family: 'Poppins', -apple-system, sans-serif;
+echo   color: var(--text-primary^);
+echo   background: linear-gradient(135deg, var(--soft-white^) 0%%, var(--surface^) 100%%^);
+echo   min-height: 100vh;
+echo   line-height: 1.6;
+echo }
+echo.
+echo /* Navigation */
+echo .navbar {
+echo   background: rgba(255, 255, 255, 0.95^);
+echo   backdrop-filter: blur(20px^);
+echo   border-bottom: 1px solid rgba(6, 86, 163, 0.08^);
+echo   padding: 1rem 0;
+echo   position: sticky;
+echo   top: 0;
+echo   z-index: 1000;
+echo   box-shadow: var(--shadow-sm^);
+echo }
+echo.
+echo .navbar-brand {
+echo   font-size: 1.75rem;
+echo   font-weight: 700;
+echo   color: var(--primary-blue^);
+echo   text-decoration: none;
+echo }
+echo.
+echo .container {
+echo   max-width: 1280px;
+echo   margin: 0 auto;
+echo   padding: 0 2rem;
+echo }
+echo.
+echo .section {
+echo   padding: 3rem 0;
+echo }
+echo.
+echo /* Grid System */
+echo .grid {
+echo   display: grid;
+echo   gap: 1.5rem;
+echo }
+echo.
+echo .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr^)^); }
+echo .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr^)^); }
+echo .grid-4 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr^)^); }
+echo.
+echo /* Stat Cards */
+echo .stat-card {
+echo   background: var(--pure-white^);
+echo   border-radius: var(--radius-lg^);
+echo   padding: 2rem;
+echo   box-shadow: var(--shadow-md^);
+echo   transition: all 0.3s ease;
+echo   border: 1px solid rgba(6, 86, 163, 0.06^);
+echo   text-align: center;
+echo }
+echo.
+echo .stat-card:hover {
+echo   transform: translateY(-4px^);
+echo   box-shadow: var(--shadow-xl^);
+echo }
+echo.
+echo .stat-label {
+echo   font-size: 0.875rem;
+echo   font-weight: 500;
+echo   color: var(--text-muted^);
+echo   text-transform: uppercase;
+echo   letter-spacing: 0.05em;
+echo   margin-bottom: 0.5rem;
+echo }
+echo.
+echo .stat-value {
+echo   font-size: 2.25rem;
+echo   font-weight: 700;
+echo   color: var(--primary-blue^);
+echo   line-height: 1.2;
+echo }
+echo.
+echo .stat-change {
+echo   font-size: 0.875rem;
+echo   font-weight: 600;
+echo   margin-top: 0.5rem;
+echo }
+echo.
+echo .stat-change.positive { color: var(--accent-green^); }
+echo .stat-change.negative { color: var(--accent-red^); }
+echo.
+echo /* Buttons */
+echo .btn {
+echo   display: inline-flex;
+echo   align-items: center;
+echo   padding: 0.75rem 1.5rem;
+echo   font-weight: 600;
+echo   font-size: 0.875rem;
+echo   border: none;
+echo   border-radius: var(--radius-md^);
+echo   cursor: pointer;
+echo   transition: all 0.3s ease;
+echo   text-transform: uppercase;
+echo   letter-spacing: 0.05em;
+echo   text-decoration: none;
+echo }
+echo.
+echo .btn-primary {
+echo   background: linear-gradient(135deg, var(--primary-blue^), #0747a6^);
+echo   color: white;
+echo   box-shadow: var(--shadow-md^);
+echo }
+echo.
+echo .btn-primary:hover {
+echo   transform: translateY(-2px^);
+echo   box-shadow: var(--shadow-lg^);
+echo }
+echo.
+echo /* Cards */
+echo .card {
+echo   background: var(--pure-white^);
+echo   border-radius: var(--radius-lg^);
+echo   padding: 2rem;
+echo   box-shadow: var(--shadow-md^);
+echo   margin-bottom: 2rem;
+echo }
+echo.
+echo .card-header {
+echo   display: flex;
+echo   justify-content: space-between;
+echo   align-items: center;
+echo   margin-bottom: 1.5rem;
+echo }
+echo.
+echo .card-title {
+echo   font-size: 1.5rem;
+echo   font-weight: 600;
+echo   color: var(--text-primary^);
+echo }
+echo.
+echo /* Member Cards */
+echo .member-card {
+echo   background: var(--pure-white^);
+echo   border-radius: var(--radius-lg^);
+echo   padding: 1.5rem;
+echo   box-shadow: var(--shadow-sm^);
+echo   display: flex;
+echo   align-items: center;
+echo   gap: 1rem;
+echo   transition: all 0.3s ease;
+echo }
+echo.
+echo .member-card:hover {
+echo   box-shadow: var(--shadow-md^);
+echo   transform: translateY(-2px^);
+echo }
+echo.
+echo .member-avatar {
+echo   width: 60px;
+echo   height: 60px;
+echo   border-radius: 50%%;
+echo   background: linear-gradient(135deg, var(--primary-blue^), var(--accent-green^)^);
+echo   color: white;
+echo   display: flex;
+echo   align-items: center;
+echo   justify-content: center;
+echo   font-weight: 700;
+echo   font-size: 1.5rem;
+echo }
+echo.
+echo /* Forms */
+echo .form-control {
+echo   width: 100%%;
+echo   padding: 0.75rem 1rem;
+echo   border: 2px solid rgba(6, 86, 163, 0.1^);
+echo   border-radius: var(--radius-md^);
+echo   font-family: 'Poppins', sans-serif;
+echo   font-size: 1rem;
+echo   transition: all 0.3s ease;
+echo }
+echo.
+echo .form-control:focus {
+echo   outline: none;
+echo   border-color: var(--primary-blue^);
+echo   box-shadow: 0 0 0 3px rgba(6, 86, 163, 0.1^);
+echo }
+echo.
+echo /* Progress Bar */
+echo .progress {
+echo   height: 28px;
+echo   background: rgba(6, 86, 163, 0.05^);
+echo   border-radius: 999px;
+echo   overflow: hidden;
+echo }
+echo.
+echo .progress-bar {
+echo   height: 100%%;
+echo   background: linear-gradient(90deg, var(--accent-green^), var(--primary-blue^)^);
+echo   display: flex;
+echo   align-items: center;
+echo   justify-content: center;
+echo   color: white;
+echo   font-weight: 600;
+echo   transition: width 0.8s ease;
+echo }
+echo.
+echo /* Modal */
+echo .modal {
+echo   display: none;
+echo   position: fixed;
+echo   top: 0;
+echo   left: 0;
+echo   width: 100%%;
+echo   height: 100%%;
+echo   background: rgba(0, 0, 0, 0.5^);
+echo   z-index: 2000;
+echo   align-items: center;
+echo   justify-content: center;
+echo }
+echo.
+echo .modal.active { display: flex; }
+echo.
+echo .modal-content {
+echo   background: white;
+echo   border-radius: var(--radius-xl^);
+echo   padding: 2rem;
+echo   max-width: 500px;
+echo   width: 90%%;
+echo   box-shadow: var(--shadow-xl^);
+echo }
+echo """
+echo.
+echo with open('app/static/css/styles.css', 'w', encoding='utf-8'^) as f:
+echo     f.write(css_content^)
+echo.
+echo print("Modern CSS created successfully!"^)
+) > create_css.py

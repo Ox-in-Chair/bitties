@@ -1,0 +1,1 @@
+pip freeze             - Update requirements file

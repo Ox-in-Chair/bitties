@@ -1,0 +1,2 @@
+echo [content]                   - Create/overwrite file
+echo [content]                  - Append to file

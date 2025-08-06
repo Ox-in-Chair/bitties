@@ -26,10 +26,11 @@ GitHub repository: [https://github.com/Ox-in-Chair/bitties](https://github.com/O
 ## 🚀 Features
 
 ### 1. Live Bitcoin Tracking
-- Pulls **real-time BTC prices** in **ZAR** and **USD** from public APIs (CoinGecko, CryptoCompare).
-- Supports **candlestick, line, area charts** over timeframes: 1D, 1W, 1M, YTD, All.
-- Dashboard toggle to switch between currencies instantly.
-- Dual-currency charts with live updates.
+- Pulls **real-time BTC prices** in **ZAR** and **USD** from public APIs
+- **30-second auto-refresh** on dashboard
+- **Quick calculator** for instant BTC estimates
+- **Manual price override** for specific purchase rates
+- **Version**: API integration v1.0, Calculator v1.4
 
 ### 2. Member Management
 - View and manage members who’ve contributed since 2022.
@@ -166,50 +167,66 @@ bitties/
 ├── run.py
 └── README.md
 🔭 Roadmap
-MVP (Delivered / In Progress)
- Live dashboard UI
 
- Master-themed design
+### ✅ Completed (Aug 2025)
+- [x] Live BTC price integration
+- [x] Historical data import system
+- [x] Secure purchase recording
+- [x] Payment tracking foundation
+- [x] Automated documentation
 
- Bitcoin API integration
+### 🚧 In Progress
+- [ ] Member Management Interface
+  - Add/remove members with auto-calculations
+  - Exit settlement calculations
+  - Join fee calculations for new members
+- [ ] Payment Capture System
+  - Individual payment recording
+  - Bulk payment import
+  - Monthly reconciliation
 
- Modular CSS
+### 📋 Next Up (Priority Order)
+1. **Member Management UI** (20 mins)
+   - View/add/edit members
+   - Calculate exit settlements
+   - Calculate entry fees
 
- CLI-run and deploy scripts
+2. **Payment Recording** (20 mins)
+   - Mark monthly payments
+   - Bulk update capabilities
+   - Payment history view
 
-Near-Term Goals (Q3–Q4 2025)
- Connect all endpoints to UI
+3. **Historical Charts** (30 mins)
+   - Portfolio growth over time
+   - BTC price history
+   - Member contribution charts
 
- Finalise transaction entry forms
+4. **System Config Tab** (25 mins)
+   - Set monthly contribution amounts
+   - Effective date controls
+   - Global settings management
 
- Enable dynamic BTC sharing logic
+5. **Ledger View** (20 mins)
+   - Combined transaction history
+   - Month-end BTC prices
+   - Filterable date ranges
 
- Tooltips on all user actions
+6. **Mobile Optimization** (15 mins)
+   - Responsive design check
+   - Touch-friendly controls
+   - Single-hand operation
 
- Uploadable logo branding
+7. **Export Reports** (25 mins)
+   - PDF generation
+   - CSV exports
+   - Tax reporting
 
- Member transfer tracking and audit log
-
-Mid-Term (2026)
- Goal trajectory analytics (AI-based)
-
- Budget simulation and BTC forecasting
-
- Full mobile app version
-
- Multi-language support (EN/AF)
-
- WhatsApp notification integration
-
-🤝 Contributing
-This is a private project managed by a closed group. Contributions are not accepted unless by invitation.
-
-🔒 License
-Private project. All code, content, and data are not for public use, distribution, or duplication. 
-
-
----
-
+### 🎯 Long-term Goals (2026+)
+- Augusta trip cost tracking
+- Automated price alerts
+- Multi-currency support
+- Mobile app version
+- WhatsApp integration
 ## Recent Updates (06/08/2025 Time Stamp 23:30)
 - ✅ Historical data import system created
 - ✅ Member transitions tracked (Frank->Mearp, Rich exit)
@@ -219,6 +236,10 @@ Private project. All code, content, and data are not for public use, distributio
 ---
 
 ## Development Progress
+
+
+### Update: 2025-08-07 00:52
+- Comprehensive update: Added transaction recording system with PIN protection, payment verification, BTC calculator, and manual holdings tracking. Updated README with complete feature list and prioritized roadmap.
 
 
 ### Update: 2025-08-07 00:40

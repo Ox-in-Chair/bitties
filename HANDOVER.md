@@ -1,9 +1,9 @@
 # Bitties Project Handover
-Last Updated: 2025-08-07 00:19
+Last Updated: 2025-08-07 00:32
 
 ## Latest Commit
-- **Message:** Added BTC simulation calculator to transaction form (v1.1) - quick estimate feature for Salad
-- **Time:** 2025-08-07 00:19
+- **Message:** Fixed input field issues in transaction form (v1.2) - BTC fields now editable and auto-calculate properly
+- **Time:** 2025-08-07 00:32
 
 ## Current System Status
 
@@ -23,6 +23,7 @@ Last Updated: 2025-08-07 00:19
 - ✅ `create_historical_data.py` - Historical data import script (Modified: 2025-08-06 23:23)
 
 ## Recent Changes Log
+- [2025-08-07 00:32] Fixed input field issues in transaction form (v1.2) - BTC fields now editable and auto-calculate properly
 - [2025-08-07 00:19] Added BTC simulation calculator to transaction form (v1.1) - quick estimate feature for Salad
 - [2025-08-07 00:18] Added secure BTC purchase form with PIN protection and payment verification
 - [2025-08-06 23:45] Connected real data to dashboard, fixed hardcoded values
@@ -33,7 +34,6 @@ Last Updated: 2025-08-07 00:19
 2. Verify all data displays correctly
 3. Run `python create_historical_data.py` if data needs refresh
 4. Check HANDOVER.md for latest status
-5. All commits should use: `python bitties_commit.py "message"`
 
 ## Next GPT Instructions
 1. Check dashboard at http://localhost:5000/dashboard

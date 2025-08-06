@@ -100,7 +100,7 @@
                         </div>
                         <div>
                             <label style="display: block; margin-bottom: 0.5rem;">BTC to Purchase</label>
-                            <input type="number" id="btcAmount" class="form-control" step="0.00000001" required readonly>
+                            <input type="number" id="btcAmount" class="form-control" step="0.00000001" required>
                         </div>
                     </div>
                     
@@ -155,6 +155,15 @@ function checkPIN() {
             document.getElementById(`pin${i}`).value = '';
         }
         document.getElementById('pin1').focus();
+
+// Initialize simulation price
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        if (currentBTCPrice > 0) {
+            document.getElementById('simPrice').value = currentBTCPrice.toFixed(2);
+        }
+    }, 1000);
+});
     }
 }
 
@@ -173,6 +182,12 @@ async function loadFundStatus() {
         currentBTCPrice = priceData.zar;
         document.getElementById('btc-price').textContent = `R${currentBTCPrice.toLocaleString()}`;
         document.getElementById('btcPriceInput').value = currentBTCPrice.toFixed(2);
+        
+        // Update Est. BTC to Buy
+        if (availableFunds > 0) {
+            const estBTC = availableFunds / currentBTCPrice;
+            document.getElementById('est-btc').textContent = estBTC.toFixed(8);
+        }
         
         // Set today's date
         document.getElementById('purchaseDate').valueAsDate = new Date();
@@ -234,7 +249,7 @@ async function loadPaymentStatus() {
 // Quick simulation
 function simulate() {
     const amount = parseFloat(document.getElementById('simAmount').value) || 0;
-    const price = currentBTCPrice || 0;
+    const price = currentBTCPrice || parseFloat(document.getElementById("btcPriceInput").value) || 0;
     document.getElementById('simPrice').value = price.toFixed(2);
     if (amount > 0 && price > 0) {
         const btc = amount / price;
@@ -305,5 +320,14 @@ async function recordPurchase(event) {
 
 // Initialize
 document.getElementById('pin1').focus();
+
+// Initialize simulation price
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        if (currentBTCPrice > 0) {
+            document.getElementById('simPrice').value = currentBTCPrice.toFixed(2);
+        }
+    }, 1000);
+});
 </script>
 {% endblock %}

@@ -221,6 +221,10 @@ Private project. All code, content, and data are not for public use, distributio
 ## Development Progress
 
 
+### Update: 2025-08-07 00:32
+- Fixed input field issues in transaction form (v1.2) - BTC fields now editable and auto-calculate properly
+
+
 ### Update: 2025-08-07 00:19
 - Added BTC simulation calculator to transaction form (v1.1) - quick estimate feature for Salad
 

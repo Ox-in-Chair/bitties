@@ -221,6 +221,10 @@ Private project. All code, content, and data are not for public use, distributio
 ## Development Progress
 
 
+### Update: 2025-08-07 00:19
+- Added BTC simulation calculator to transaction form (v1.1) - quick estimate feature for Salad
+
+
 ### Update: 2025-08-07 00:18
 - Added secure BTC purchase form with PIN protection and payment verification
 

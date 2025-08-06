@@ -58,6 +58,26 @@
                 </div>
             </div>
 
+            
+            <!-- BTC Simulation Tool -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h2 class="card-title">Quick BTC Calculator</h2>
+                <div class="grid grid-3" style="gap: 1rem;">
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem;">Amount (ZAR)</label>
+                        <input type="number" id="simAmount" class="form-control" placeholder="1000" onkeyup="simulate()">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem;">BTC Price</label>
+                        <input type="number" id="simPrice" class="form-control" readonly>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem;">BTC You'd Get</label>
+                        <input type="text" id="simResult" class="form-control" readonly style="font-weight: 600;">
+                    </div>
+                </div>
+            </div>
+
             <!-- Purchase Form -->
             <div class="card">
                 <h2 class="card-title">Record New Purchase</h2>
@@ -210,6 +230,19 @@ async function loadPaymentStatus() {
         if (allMembersPaid && availableFunds > 0) {
             document.getElementById('amountZAR').value = availableFunds.toFixed(2);
             calculateBTC();
+        
+// Quick simulation
+function simulate() {
+    const amount = parseFloat(document.getElementById('simAmount').value) || 0;
+    const price = currentBTCPrice || 0;
+    document.getElementById('simPrice').value = price.toFixed(2);
+    if (amount > 0 && price > 0) {
+        const btc = amount / price;
+        document.getElementById('simResult').value = btc.toFixed(8) + ' BTC';
+    } else {
+        document.getElementById('simResult').value = '0.00000000 BTC';
+    }
+}
         }
         
     } catch (error) {

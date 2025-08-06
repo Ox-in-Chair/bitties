@@ -138,3 +138,7 @@ def minimal():
 def minimal(): 
     return render_template('minimal.html') 
  
+ 
+@app.route('/dashboard_original') 
+def dashboard_original(): 
+    return render_template('dashboard_original.html') 

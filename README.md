@@ -195,6 +195,10 @@ Access at: http://localhost:5000/dashboard
 ## Development Progress
 
 
+### Update: 2025-08-07 01:24
+- Fixed dashboard live updates (v1.1), added Corrections interface (v1.0) for data fixes, renamed Members to Member Setup. Dashboard now refreshes after purchases.
+
+
 ### Update: 2025-08-07 01:15
 - Added Member Management UI (v1.0): View members, add with entry fee calculation, remove with BTC settlement. PIN protected. Tracks all member transitions.
 

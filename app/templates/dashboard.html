@@ -26,7 +26,7 @@
         <div class="grid grid-4">
             <div class="stat-card">
                 <div class="stat-label">Total BTC</div>
-                <div class="stat-value" id="total-btc">0.11107669</div>
+                <div class="stat-value" id="total-btc">Loading...</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Portfolio Value</div>
@@ -93,6 +93,12 @@ async function loadFundData() {
             }).join('');
         membersContainer.innerHTML = memberHtml;
         
+        // Update displayed values
+        document.getElementById('total-btc').textContent = fundData.total_btc_acquired.toFixed(8);
+        
+        // Update displayed values
+        document.getElementById('total-btc').textContent = fundData.total_btc_acquired.toFixed(8);
+        
         // Store fund data globally
         window.fundData = fundData;
     } catch (error) {
@@ -111,8 +117,8 @@ async function updateBitcoinPrices() {
         document.getElementById('btc-usd').textContent = `$${data.usd.toLocaleString()}`;
         
         // Use real BTC amount from fund data
-        const totalBTC = 0.11107669;
-        const totalInvested = 99600;
+        const totalBTC = window.fundData ? window.fundData.total_btc_acquired : 0;
+        const totalInvested = window.fundData ? window.fundData.total_contributions_zar : 0;
         const portfolioValueZAR = totalBTC * data.zar;
         
         document.getElementById('portfolio-value').textContent = `R${Math.round(portfolioValueZAR).toLocaleString()}`;

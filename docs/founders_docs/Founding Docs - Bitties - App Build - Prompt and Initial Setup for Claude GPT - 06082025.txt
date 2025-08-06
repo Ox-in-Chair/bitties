@@ -7,7 +7,7 @@ General Prompt and Initial Setup for "Bitties" App Development with Claude
 * Core Values/Principles: The app is built on principles of user-centric design (accessibility-first), automation (zero manual setup), modularity, efficiency (token-efficient GPT interactions), data accuracy, and branding consistency.
 2. Technical Requirements and Initial Guidelines:
 * Core Development Language: The project utilises cmd and Python. The project path is C:\Users\mike\OneDrive\BitcoinApp\bitties, and the GitHub URL should be referenced in prompts to ensure these documents are consistently consulted.
-* Version Control: GitHub will be utilised for version control. - https://github.com/Ox-in-Chair/bitties
+* Version Control: GitHub will be utilised for version control. - 
 * Content Delivery Network (CDN): Cloudflare can be utilised if necessary for enhanced performance and security.
 * Modular Build: The app must have a modular build structure to facilitate future feature additions and maintenance.
 * Project File: We need to create a structured project file.
@@ -31,7 +31,7 @@ Founding Docs – Bitties – App Build – 06082025.txt
 Founding Docs – Bitties – App Build – Insights to how-to – 06082025.txt
 
 Founding Docs – Bitties – App Build – Prompt and Initial Setup for Claude GPT – 06082025.txt) for a comprehensive understanding of the project's structure, requirements, and existing information.
-* GitHub Repository: I will provide the direct link to the public GitHub repository where the code will reside: [Your GitHub Repository URL]. Please ensure you have access to this repository. This will help you understand the project's structure and existing code.
+* GitHub Repository: I will provide the direct link to the public GitHub repository where the code will reside: [https://github.com/Ox-in-Chair/bitties]. Please ensure you have access to this repository. This will help you understand the project's structure and existing code.
 * Consistent Information: It is essential to maintain consistent information throughout our interactions to ensure continuity and prevent drifting off topic.
 * Restating Preferences: If you appear to drift off track or forget specific instructions, I will restate my preferences directly in the prompt. As a reminder, please aim to include core preferences in every relevant prompt, especially for critical aspects like styling. For example, I might say: "Remember our agreed typography and colour scheme as per the style guide.".
 4. Initial Instructions for Specific Aspects:

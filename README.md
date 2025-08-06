@@ -205,4 +205,4 @@ Mid-Term (2026)
 This is a private project managed by a closed group. Contributions are not accepted unless by invitation.
 
 🔒 License
-Private project. All code, content, and data are not for public use, distribution, or duplication.
+Private project. All code, content, and data are not for public use, distribution, or duplication. 

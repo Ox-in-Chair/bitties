@@ -19,6 +19,11 @@ Augusta 2036 Masters Tournament Fund Tracker
 - Manual holdings input for accuracy
 - Confirmation dialogs
 - Automatic data persistence
+- **BTC Calculator** with:
+  - Editable price fields
+  - Bidirectional calculations
+  - Proper decimal formatting
+  - Real-time estimates
 
 #### 3. **Historical Data Management** (v1.0)
 - Complete import from Oct 2021
@@ -32,13 +37,13 @@ Augusta 2036 Masters Tournament Fund Tracker
 - Git version tracking
 - RESTful API endpoints
 
-### ⚠️ Known Issues
+### ✅ All Known Issues Resolved
 
-1. **BTC Calculator Fields**
-   - BTC Price field incorrectly read-only
-   - Scientific notation (9e-8) display bug
-   - Arrow-only input restriction
-   - Auto-calculations not triggering
+All previously identified calculator issues have been fixed in v1.4:
+- BTC Price field now fully editable
+- Decimal display working correctly (no 9e-8)
+- Full keyboard input support
+- All auto-calculations functioning
 
 ### 🚧 Outstanding Features (Priority Order)
 
@@ -104,6 +109,10 @@ Access at: http://localhost:5000/dashboard
 - `data/historical_data.json` - Complete transaction history
 - `data/fund_summary.json` - Current fund state
 ## Development Progress
+
+
+### Update: 2025-08-07 00:54
+- Updated documentation to reflect ALL calculator issues are FIXED (v1.5). BTC calculator now fully functional with editable fields, proper formatting, and working calculations. No known issues remain.
 
 
 ### Update: 2025-08-07 00:54

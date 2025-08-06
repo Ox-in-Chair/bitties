@@ -2,7 +2,7 @@
 Last Updated: 2025-08-07 00:54
 
 ## Latest Commit
-- **Message:** Comprehensive project status update: Documented all completed features (dashboard v1.0, transactions v1.4), known calculator issues, and prioritized outstanding features. Created PROJECT_STATUS.json for tracking.
+- **Message:** Updated documentation to reflect ALL calculator issues are FIXED (v1.5). BTC calculator now fully functional with editable fields, proper formatting, and working calculations. No known issues remain.
 - **Time:** 2025-08-07 00:54
 
 ## Current System Status
@@ -23,16 +23,7 @@ Last Updated: 2025-08-07 00:54
 - ✅ `create_historical_data.py` - Historical data import script (Modified: 2025-08-06 23:23)
 
 ## Recent Changes Log
-- [2025-08-07 00:54] Comprehensive project status update: Documented all completed features (dashboard v1.0, transactions v1.4), known calculator issues, and prioritized outstanding features. Created PROJECT_STATUS.json for tracking.
-- [2025-08-07 00:53] Comprehensive project status update: Documented all completed features (dashboard v1.0, transactions v1.4), known calculator issues, and prioritized outstanding features. Created PROJECT_STATUS.json for tracking.
-- [2025-08-07 00:52] Comprehensive update: Added transaction recording system with PIN protection, payment verification, BTC calculator, and manual holdings tracking. Updated README with complete feature list and prioritized roadmap.
-- [2025-08-07 00:40] Fixed BTC formatting (no more 9e-8) and added bidirectional calculations (v1.4) - improved input flexibility
-- [2025-08-07 00:38] Fixed BTC calculator price field and added manual total holdings input (v1.3) - ensures accurate fund tracking
-- [2025-08-07 00:32] Fixed input field issues in transaction form (v1.2) - BTC fields now editable and auto-calculate properly
-- [2025-08-07 00:19] Added BTC simulation calculator to transaction form (v1.1) - quick estimate feature for Salad
-- [2025-08-07 00:18] Added secure BTC purchase form with PIN protection and payment verification
-- [2025-08-06 23:45] Connected real data to dashboard, fixed hardcoded values
-
+- [2025-08-07 00:54] Updated documentation to reflect ALL calculator issues are FIXED (v1.5). BTC calculator now fully functional with editable fields, proper formatting, and working calculations. No known issues remain.
 
 
 ## Next GPT Instructions

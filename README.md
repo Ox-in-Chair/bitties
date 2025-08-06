@@ -195,6 +195,10 @@ Access at: http://localhost:5000/dashboard
 ## Development Progress
 
 
+### Update: 2025-08-07 01:41
+- Restructured config features into tabbed interface (v1.0). Member Setup and Corrections now sub-tabs under Config. Fixed 404 error. Single PIN protection for all admin features.
+
+
 ### Update: 2025-08-07 01:24
 - Fixed dashboard live updates (v1.1), added Corrections interface (v1.0) for data fixes, renamed Members to Member Setup. Dashboard now refreshes after purchases.
 

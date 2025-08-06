@@ -358,3 +358,14 @@ def api_remove_member(member_id):
         
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+@app.route('/corrections')
+def corrections():
+    """Data corrections page"""
+    return render_template('corrections.html')
+
+@app.route('/config')
+def config():
+    """System configuration page"""
+    return render_template('config.html')

@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+{% block title %}Bitties - System Configuration{% endblock %}
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h1 style="color: var(--primary-blue); margin-bottom: 2rem;">System Configuration</h1>
+        
+        <!-- PIN Protection Modal -->
+        <div id="pinModal" class="modal active">
+            <div class="modal-content" style="max-width: 400px;">
+                <h2 style="text-align: center; margin-bottom: 1.5rem;">Admin Access Required</h2>
+                <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 1.5rem;">
+                    <input type="password" id="pin1" maxlength="1" style="width: 50px; height: 50px; text-align: center; font-size: 24px;" class="form-control">
+                    <input type="password" id="pin2" maxlength="1" style="width: 50px; height: 50px; text-align: center; font-size: 24px;" class="form-control">
+                    <input type="password" id="pin3" maxlength="1" style="width: 50px; height: 50px; text-align: center; font-size: 24px;" class="form-control">
+                    <input type="password" id="pin4" maxlength="1" style="width: 50px; height: 50px; text-align: center; font-size: 24px;" class="form-control">
+                </div>
+                <button onclick="checkPIN()" class="btn btn-primary" style="width: 100%;">Submit</button>
+            </div>
+        </div>
+
+        <!-- Main Content with Tabs -->
+        <div id="mainContent" style="display: none;">
+            
+            <!-- Tab Navigation -->
+            <div style="border-bottom: 2px solid var(--primary-blue); margin-bottom: 2rem;">
+                <button class="tab-btn active" onclick="showTab('members')">Member Setup</button>
+                <button class="tab-btn" onclick="showTab('corrections')">Data Corrections</button>
+                <button class="tab-btn" onclick="showTab('settings')">Global Settings</button>
+            </div>
+
+            <!-- Member Setup Tab -->
+            <div id="members-tab" class="tab-content active">
+                <iframe src="/members/manage" style="width: 100%; height: 800px; border: none;"></iframe>
+            </div>
+
+            <!-- Corrections Tab -->
+            <div id="corrections-tab" class="tab-content">
+                <iframe src="/corrections" style="width: 100%; height: 800px; border: none;"></iframe>
+            </div>
+
+            <!-- Global Settings Tab -->
+            <div id="settings-tab" class="tab-content">
+                <div class="card">
+                    <h2 class="card-title">Global Settings</h2>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h3>Monthly Contribution Amount</h3>
+                        <div class="grid grid-2" style="gap: 1rem; margin-top: 1rem;">
+                            <div>
+                                <label>Current Amount (ZAR)</label>
+                                <input type="number" id="currentContribution" class="form-control" value="400" readonly>
+                            </div>
+                            <div>
+                                <label>New Amount (Effective Next Month)</label>
+                                <input type="number" id="newContribution" class="form-control" placeholder="500">
+                            </div>
+                        </div>
+                        <button onclick="updateContribution()" class="btn btn-primary" style="margin-top: 1rem;">
+                            Update Contribution Amount
+                        </button>
+                    </div>
+
+                    <div style="margin-bottom: 2rem;">
+                        <h3>PIN Code Management</h3>
+                        <p style="color: var(--text-muted);">Current PIN: 2580</p>
+                        <button class="btn btn-primary" onclick="alert('PIN change feature coming soon')">
+                            Change PIN
+                        </button>
+                    </div>
+
+                    <div>
+                        <h3>Data Backup</h3>
+                        <button onclick="downloadBackup()" class="btn btn-primary">
+                            Download Data Backup
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: var(--primary-blue);
+}
+
+.tab-btn.active {
+    color: var(--primary-blue);
+    border-bottom-color: var(--primary-blue);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+</style>
+
+<script>
+const correctPIN = '2580';
+
+// PIN verification
+document.querySelectorAll('#pinModal input').forEach((input, index) => {
+    input.addEventListener('input', (e) => {
+        if (e.target.value && index < 3) {
+            document.querySelector(`#pin${index + 2}`).focus();
+        }
+        if (index === 3 && e.target.value) {
+            checkPIN();
+        }
+    });
+});
+
+function checkPIN() {
+    const pin = document.getElementById('pin1').value + 
+                document.getElementById('pin2').value + 
+                document.getElementById('pin3').value + 
+                document.getElementById('pin4').value;
+    
+    if (pin === correctPIN) {
+        document.getElementById('pinModal').style.display = 'none';
+        document.getElementById('mainContent').style.display = 'block';
+    } else {
+        for (let i = 1; i <= 4; i++) {
+            document.getElementById(`pin${i}`).value = '';
+        }
+        document.getElementById('pin1').focus();
+    }
+}
+
+function showTab(tabName) {
+    // Hide all tabs
+    document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    // Show selected tab
+    document.getElementById(tabName + '-tab').classList.add('active');
+    event.target.classList.add('active');
+}
+
+async function updateContribution() {
+    const newAmount = document.getElementById('newContribution').value;
+    if (!newAmount || newAmount <= 0) {
+        alert('Please enter a valid amount');
+        return;
+    }
+    
+    alert(`Contribution amount will be updated to R${newAmount} starting next month`);
+    // TODO: Implement API call
+}
+
+async function downloadBackup() {
+    try {
+        // Fetch all data
+        const [history, summary] = await Promise.all([
+            fetch('/api/fund/history').then(r => r.json()),
+            fetch('/api/fund/summary').then(r => r.json())
+        ]);
+        
+        const backup = {
+            timestamp: new Date().toISOString(),
+            history: history,
+            summary: summary
+        };
+        
+        // Create download
+        const blob = new Blob([JSON.stringify(backup, null, 2)], {type: 'application/json'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `bitties_backup_${new Date().toISOString().split('T')[0]}.json`;
+        a.click();
+    } catch (error) {
+        alert('Error creating backup');
+    }
+}
+
+// Initialize
+document.getElementById('pin1').focus();
+</script>
+{% endblock %}

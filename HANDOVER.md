@@ -1,9 +1,9 @@
 # Bitties Project Handover
-Last Updated: 2025-08-07 01:24
+Last Updated: 2025-08-07 01:41
 
 ## Latest Commit
-- **Message:** Fixed dashboard live updates (v1.1), added Corrections interface (v1.0) for data fixes, renamed Members to Member Setup. Dashboard now refreshes after purchases.
-- **Time:** 2025-08-07 01:24
+- **Message:** Restructured config features into tabbed interface (v1.0). Member Setup and Corrections now sub-tabs under Config. Fixed 404 error. Single PIN protection for all admin features.
+- **Time:** 2025-08-07 01:41
 
 ## Current System Status
 
@@ -15,7 +15,7 @@ Last Updated: 2025-08-07 01:24
 - Last BTC Purchase: 2025-08-06
 
 ### Key Files Status
-- ✅ `app/main.py` - Flask application with routes (Modified: 2025-08-07 01:22)
+- ✅ `app/main.py` - Flask application with routes (Modified: 2025-08-07 01:29)
 - ✅ `app/templates/dashboard.html` - Main dashboard interface (Modified: 2025-08-07 01:22)
 - ✅ `app/static/css/styles.css` - Masters Tournament themed styling (Modified: 2025-08-06 21:25)
 - ✅ `data/historical_data.json` - Complete transaction history (Modified: 2025-08-07 00:40)
@@ -23,6 +23,7 @@ Last Updated: 2025-08-07 01:24
 - ✅ `create_historical_data.py` - Historical data import script (Modified: 2025-08-06 23:23)
 
 ## Recent Changes Log
+- [2025-08-07 01:41] Restructured config features into tabbed interface (v1.0). Member Setup and Corrections now sub-tabs under Config. Fixed 404 error. Single PIN protection for all admin features.
 - [2025-08-07 01:24] Fixed dashboard live updates (v1.1), added Corrections interface (v1.0) for data fixes, renamed Members to Member Setup. Dashboard now refreshes after purchases.
 - [2025-08-07 01:15] Added Member Management UI (v1.0): View members, add with entry fee calculation, remove with BTC settlement. PIN protected. Tracks all member transitions.
 - [2025-08-07 01:08] Redesigned roadmap for SA professional traders (v1.7): Serious analytics, multi-crypto tracking, separate news tabs, SA-specific features like load shedding and Luno arbitrage. No gamification.
@@ -33,7 +34,6 @@ Last Updated: 2025-08-07 01:24
 ## Next GPT Instructions
 1. Check dashboard at http://localhost:5000/dashboard
 2. Verify all data displays correctly
-3. Run `python create_historical_data.py` if data needs refresh
 
 ## Next GPT Instructions
 1. Check dashboard at http://localhost:5000/dashboard
